@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>pwn - Tag - MyLittlePwney</title>
+    <link>https://0xeg0.github.io/MyLittlePwney/tags/pwn/</link>
+    <description>pwn - Tag | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/pwn/" rel="self" type="application/rss+xml" /><item>
+  <title>🔥 House of Force 🔥</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/house-of-force/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/house-of-force/</guid>
+  <description><![CDATA[OverviewL&rsquo;objectif de cette attaque est d&rsquo;overwrite les metadata du top chunk pour augmenter sa size. Ainsi on va pouvoir faire des malloc sur un espace mémoire beaucoup plus grand et donc malloc en dehors de la HEAP.
+DetailDans les versions de la GLIBC &lt; 2.29, il n&rsquo;y a pas de check sur l&rsquo;intégrité des metadata du top chunk. Ainsi, si la size du top chunk est overwrite, l&rsquo;algorithme malloc fonctionnera quand même.]]></description>
+</item>
+<item>
+  <title>Android Internals/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</guid>
+  <description><![CDATA[fa-brands fa-android fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Attacks/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/</guid>
+  <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Browser Exploitation/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/browser-exploitation/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/browser-exploitation/</guid>
+  <description><![CDATA[fa-brands fa-chrome fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Buffer Overflow/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</guid>
+  <description><![CDATA[fa-brands fa-stack-overflow fa-fw me-1]]></description>
+</item>
+<item>
+  <title>Cheat Sheets</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</guid>
+  <description><![CDATA[fa-solid fa-file-lines fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Format Strings/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/format-strings/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/format-strings/</guid>
+  <description><![CDATA[fa-solid fa-file-code fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Fuzzing/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/fuzzing/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/fuzzing/</guid>
+  <description><![CDATA[fa-solid fa-bug-slash fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Heap Attacks/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/</guid>
+  <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Kernel/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/</guid>
+  <description><![CDATA[fa-solid fa-gear fa-fw fa-sm]]></description>
+</item>
+</channel>
+</rss>
