@@ -1,7 +1,7 @@
 ---
 title: 'MISC - Zéro Pointé - FCSC 2023'
 date: 2023-02-20
-draft: false
+draft: true
 categories:
   - web
   - fcsc

@@ -1,7 +1,7 @@
 ---
-title: 'Pwntools'
+title: '🏴 Pwntools'
 date: 2023-02-20
-draft: trash
+draft: true
 description: "fa-solid fa-file-lines fa-fw fa-sm"
 categories:
   - pwn

@@ -114,7 +114,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Buffer Overflow"
-    url = "/pwn/bof/"
+    url = "/pwn/buffer-overflow/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 1
@@ -136,7 +136,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Format Strings"
-    url = "/pwn/fmt/"
+    url = "/pwn/format-strings/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 2
@@ -158,7 +158,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Heap Attacks"
-    url = "/pwn/heap/"
+    url = "/pwn/heap-attacks/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 3
@@ -246,7 +246,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Linux Internals"
-    url = "/pwn/linux/"
+    url = "/pwn/linux-internals/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 7
@@ -268,7 +268,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Windows Internals"
-    url = "/pwn/windows/"
+    url = "/pwn/windows-internals/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 8
@@ -290,7 +290,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Android Internals"
-    url = "/pwn/android/"
+    url = "/pwn/android-internals/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 9
@@ -356,7 +356,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Browser Exploitation"
-    url = "/pwn/browser/"
+    url = "/pwn/browser-exploitation/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 12
@@ -400,7 +400,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Cheat Sheets"
-    url = "/pwn/cheatsheets/"
+    url = "/pwn/cheat-sheets/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 14
@@ -466,7 +466,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "SQL Injections"
-    url = "/web/sqli/"
+    url = "/web/sql-injections/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 1
@@ -488,7 +488,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "NoSQL Injections"
-    url = "/web/nosqli/"
+    url = "/web/nosql-injections/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 2
@@ -510,7 +510,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "JWT Attacks"
-    url = "/web/jwt/"
+    url = "/web/jwt-attacks/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 3
@@ -532,7 +532,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "GraphQL API"
-    url = "/web/graphql/"
+    url = "/web/graphql-api/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 4
@@ -554,7 +554,7 @@ enableEmoji = true
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Insecure Deserialization"
-    url = "/web/deserialization/"
+    url = "/web/insecure-deserialization/"
     # title will be shown when you hover on this menu link
     title = ""
     weight = 5
@@ -700,17 +700,6 @@ enableEmoji = true
       icon = "fa-solid fa-wave-square"
       # FixIt 0.2.16 | NEW set menu item type, optional values: ["mobile", "desktop"]
       type = ""
-  [[menu.main]]
-    identifier = "tags"
-    parent = ""
-    pre = ""
-    post = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
-    weight = 6
-    [menu.main.params]
-      icon = "fa-solid fa-tags"
 
 # -------------------------------------------------------------------------------------
 # Related content Configuration
@@ -921,7 +910,7 @@ enableEmoji = true
   # site keywords
   keywords = []
   # site default theme ["light", "dark", "auto"]
-  defaultTheme = "auto"
+  defaultTheme = "dark"
   # which hash function used for SRI, when empty, no SRI is used
   # ["sha256", "sha384", "sha512", "md5"]
   fingerprint = ""
@@ -1650,10 +1639,10 @@ enableEmoji = true
 
   # Analytics config
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "G-E5LRZC34M1"
       # whether to anonymize IP
       anonymizeIP = true
     # Fathom Analytics
@@ -1688,7 +1677,7 @@ enableEmoji = true
   # FixIt 0.2.14 | NEW GitHub banner in the top-right or top-left corner
   [params.githubCorner]
     enable = true
-    permalink = "https://github.com/hugo-fixit/FixIt"
+    permalink = "https://github.com/0xEg0/MyLittlePwney"
     title = "View source on GitHub"
     position = "right" # ["left", "right"]
 
@@ -1708,7 +1697,7 @@ enableEmoji = true
 
   # FixIt 0.2.16 | NEW Reading progress bar
   [params.readingProgress]
-    enable = false
+    enable = true
     # Available values: ["left", "right"]
     start = "left"
     # Available values: ["top", "bottom"]

@@ -3,8 +3,8 @@
 @import '../_partials/_single/collections';
 
 .single {
-  .single-title {
-    padding: 1rem 0 0.5rem;
+	.single-title {
+padding: 1rem 0 0.5rem;
     margin: 0;
     font-size: 1.6rem;
     font-weight: bold;
@@ -189,9 +189,11 @@
       white-space: normal;
       @include overflow-wrap(break-word);
 
+      color: #7dc4e4;
+
       [data-theme='dark'] & b,
       [data-theme='dark'] & strong {
-        color: $single-link-color-dark;
+        color: #7dc4e4;
       }
     }
 
