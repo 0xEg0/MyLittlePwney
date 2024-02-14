@@ -170,7 +170,16 @@
       font-weight: bold;
 
       [data-theme='dark'] & {
-        color: #ddd;
+        color: #ed8796;
+      }
+    }
+
+    i,
+    em{
+      font-weight: italic;
+
+      [data-theme='dark'] & {
+        color: #a6da95;
       }
     }
 

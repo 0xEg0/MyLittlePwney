@@ -37,9 +37,6 @@
                 {{- end -}}
                 {{- .LinkTitle -}}
               </a>
-              <span class="archive-item-date" title='{{ "2006-01-02 15:04:05" | .Date.Format }}'>
-                {{- .Date | dateFormat ($.Site.Params.section.dateFormat | default "01-02") -}}
-              </span>
             </article>
           {{- end -}}
         {{- end -}}
@@ -85,9 +82,6 @@
                         {{- .LinkTitle -}}
                       </a>
                     </b>
-                    <span class="archive-item-date" title='{{ "2006-01-02 15:04:05" | .Date.Format }}'>
-                      {{- .Date | dateFormat ($.Site.Params.section.dateFormat | default "01-02") -}}
-                    </span>
                   </article>
                 {{- else -}}
                   <article class="archive-item">
@@ -98,9 +92,6 @@
                       {{- end -}}
                       {{- .LinkTitle -}}
                     </a>
-                    <span class="archive-item-date" title='{{ "2006-01-02 15:04:05" | .Date.Format }}'>
-                      {{- .Date | dateFormat ($.Site.Params.section.dateFormat | default "01-02") -}}
-                    </span>
                   </article>
                 {{- end -}}
               {{- end -}}
