@@ -5,24 +5,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>All Pwn/ - MyLittlePwney</title><meta name="author" content="">
+    <title>🪜 Kernel Privesc 🪜 - MyLittlePwney</title><meta name="author" content="">
 <meta name="author-link" content="">
-<meta name="description" content="My little infosec blog" /><meta itemprop="name" content="Pwn/">
-<meta itemprop="description" content="My little infosec blog"><meta property="og:title" content="Pwn/" />
-<meta property="og:description" content="My little infosec blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://0xeg0.github.io/MyLittlePwney/pwn/" /><meta property="og:image" content="https://0xeg0.github.io/image/logo.png" />
+<meta name="description" content="fa-solid fa-gear fa-fw fa-sm" /><meta name="keywords" content='pwn, kernel' /><meta itemprop="name" content="🪜 Kernel Privesc 🪜">
+<meta itemprop="description" content="fa-solid fa-gear fa-fw fa-sm"><meta itemprop="datePublished" content="2024-02-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-02-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="481"><meta itemprop="image" content="https://0xeg0.github.io/image/logo.png" />
+<meta itemprop="keywords" content="pwn,kernel," /><meta property="og:title" content="🪜 Kernel Privesc 🪜" />
+<meta property="og:description" content="fa-solid fa-gear fa-fw fa-sm" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/" /><meta property="og:image" content="https://0xeg0.github.io/image/logo.png" /><meta property="article:section" content="pwn" />
+<meta property="article:published_time" content="2024-02-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-19T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://0xeg0.github.io/image/logo.png" /><meta name="twitter:title" content="Pwn/"/>
-<meta name="twitter:description" content="My little infosec blog"/>
+<meta name="twitter:image" content="https://0xeg0.github.io/image/logo.png" /><meta name="twitter:title" content="🪜 Kernel Privesc 🪜"/>
+<meta name="twitter:description" content="fa-solid fa-gear fa-fw fa-sm"/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://0xeg0.github.io/MyLittlePwney/pwn/" /><link rel="alternate" href="/MyLittlePwney/pwn/index.xml" type="application/rss+xml" title="MyLittlePwney">
-  <link rel="feed" href="/MyLittlePwney/pwn/index.xml" type="application/rss+xml" title="MyLittlePwney"><link rel="stylesheet" href="/MyLittlePwney/css/style.min.css"><link rel="preload" href="/MyLittlePwney/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/" /><link rel="prev" href="https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/house-of-force/" /><link rel="stylesheet" href="/MyLittlePwney/css/style.min.css"><link rel="preload" href="/MyLittlePwney/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/MyLittlePwney/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/animate/animate.min.css"></noscript><link rel="stylesheet" type="" href="/MyLittlePwney/css/custom.css">
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "🪜 Kernel Privesc 🪜",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/0xeg0.github.io\/MyLittlePwney\/pwn\/kernel\/kernel-privesc\/"
+    },"genre": "pwn","keywords": "pwn, kernel","wordcount":  481 ,
+    "url": "https:\/\/0xeg0.github.io\/MyLittlePwney\/pwn\/kernel\/kernel-privesc\/","datePublished": "2024-02-19T00:00:00+00:00","dateModified": "2024-02-19T00:00:00+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Author"
+      },"description": "fa-solid fa-gear fa-fw fa-sm"
+  }
+  </script><link rel="stylesheet" type="" href="/MyLittlePwney/css/custom.css">
   </head>
   <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper" data-github-corner="right">
@@ -46,7 +67,7 @@
                           title="France Cyber Security Challenge"
                           
                         ><i class="fa-solid fa-medal fa-fw fa-sm" aria-hidden="true"></i> FCSC</a>
-                      </li></ul></li><li class="menu-item active has-children">
+                      </li></ul></li><li class="menu-item has-children">
               <a
                 class="menu-link"
                 href="/MyLittlePwney/pwn/"
@@ -356,7 +377,7 @@
                           
                         ><i class="fa-solid fa-medal fa-fw fa-sm" aria-hidden="true"></i> FCSC</a>
                       </li></ul></li><li
-              class="menu-item active"
+              class="menu-item"
             ><span class="nested-item">
                   <a
                     class="menu-link"
@@ -624,84 +645,86 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="container"><div class="page archive">
-    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster"><i class="fa-solid fa-bbbug fa-fw me-1" aria-hidden="true"></i>Pwn/ </sup>
-      </h1>
-    </div><h2 class="group-title">
-          . /
-        </h2><hr/><h2 class="group-title">
-              <i class="fa-brands fa-android fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/android-internals/" class="archive-item-link">Android Internals/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/android-internals/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-brands fa-chrome fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/browser-exploitation/" class="archive-item-link">Browser Exploitation/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/browser-exploitation/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-brands fa-stack-overflow fa-fw me-1"></i>
-              <a href="/MyLittlePwney/pwn/buffer-overflow/" class="archive-item-link">Buffer Overflow/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/buffer-overflow/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-solid fa-file-lines fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/cheat-sheets/" class="archive-item-link">Cheat Sheets</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/cheat-sheets/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-solid fa-file-code fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/format-strings/" class="archive-item-link">Format Strings/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/format-strings/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-solid fa-bug-slash fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/fuzzing/" class="archive-item-link">Fuzzing/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/fuzzing/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-solid fa-trash-can fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/heap-attacks/" class="archive-item-link">Heap Attacks/</a>
-            </h2><article class="archive-item">
-                    <b>
-                      <a href="/MyLittlePwney/pwn/heap-attacks/attacks/" class="archive-item-link">Attacks/</a>
-                    </b>
-                  </article><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/heap-attacks/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-solid fa-gear fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/kernel/" class="archive-item-link">Kernel/</a>
-            </h2><article class="archive-item">
-                    <a href="/MyLittlePwney/pwn/kernel/kernel-privesc/" class="archive-item-link">🪜 Kernel Privesc 🪜</a>
-                  </article><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/kernel/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-brands fa-linux fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/linux-internals/" class="archive-item-link">Linux Internals/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/linux-internals/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-solid fa-trash-can fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/shellcoding/" class="archive-item-link">Shellcoding/</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/shellcoding/" class="archive-item-link">. . .
-              </a>
-            </article><h2 class="group-title">
-              <i class="fa-brands fa-windows fa-fw fa-sm"></i>
-              <a href="/MyLittlePwney/pwn/windows-internals/" class="archive-item-link">Windows Internals</a>
-            </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/windows-internals/" class="archive-item-link">. . .
-              </a>
-            </article></div></main><footer class="footer">
+  </div><main class="container"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">🪜 Kernel Privesc 🪜</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="overview" class="heading-element">
+  <a href="#overview" class="heading-mark"></a>Overview</h2><p>L&rsquo;objectif de ce post est d&rsquo;aborder la couche d&rsquo;abstraction nécéssaire à la compréhension du pwn kernel.
+Pour cela, il est nécéssaire de comprendre comment les différents process interagissent avec le kernel, et comment un contrôle de flow d&rsquo;execution en kernel-mode peut nous permettre d&rsquo;améliorer nos privilèges en user-land.</p>
+<h2 id="process-x-kernel" class="heading-element">
+  <a href="#process-x-kernel" class="heading-mark"></a>Process x Kernel</h2><p>Il est important de noter que l&rsquo;on interagit avec le kernel de pleins de manières différentes. Que ce soit en modifiant le filesystem, avec des syscalls, en communiquant avec des devices&hellip;
+Toutes ces actions nécéssitent une intervention du kernel au niveau des process qui les initient.</p>
+<p>Pour comprendre et manipuler les process, le kernel linux utilise une structure <a href="https://github.com/torvalds/linux/blob/master/include/linux/sched.h#L748"target="_blank" rel="external nofollow noopener noreferrer">task_struct</a> contenant toutes le informations dont il a besoin : PID, état du process, niveau de permissions&hellip;
+Il sauvegarde la <strong>task_struct</strong> de tous les process en mémoire, sous forme de liste chainée.
+<img loading="lazy" src="/MyLittlePwney/MyLittlePwney/images/task_struct.png" alt="task_struct" srcset="/MyLittlePwney/images/task_struct.png?size=small, /MyLittlePwney/images/task_struct.png?size=medium 1.5x, /MyLittlePwney/images/task_struct.png?size=large 2x" sizes="auto" data-title="task_struct" style="background: url(/MyLittlePwney/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="privesc" class="heading-element">
+  <a href="#privesc" class="heading-mark"></a>Privesc</h2><p>Puisque le kernel peut modifier la structure d&rsquo;un process, alors il peut modifier les permissions de ce process, et notamment les passer a root.
+Ainsi, si on trouve une faille niveau kernel qui nous permet de prendre le contrôle du flow d&rsquo;execution, alors nous pouvons simplement lancer un process en user-land, augmenter ses privileges côté kernel et retourner en user-land.</p>
+<p>Pour faire cela, on va donc modifier la <strong>task_struct</strong> du process qu&rsquo;on a lancé et changer ses privilèges. Comme les privilèges d&rsquo;une <strong>task_struct</strong> sont, eux aussi, définis sous forme de structure, on va faire appel à des fonctions kernel pour modifier proprement la <strong>task_struct</strong>.</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* Process credentials: */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* Tracer&#39;s credentials at attach: */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="k">struct</span> <span class="n">cred</span> <span class="n">__rcu</span>		<span class="o">*</span><span class="n">ptracer_cred</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* Objective and real subjective task credentials (COW): */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="k">struct</span> <span class="n">cred</span> <span class="n">__rcu</span>		<span class="o">*</span><span class="n">real_cred</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* Effective (overridable) subjective task credentials (COW): */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">const</span> <span class="k">struct</span> <span class="n">cred</span> <span class="n">__rcu</span>		<span class="o">*</span><span class="n">cred</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Les fonctions <em>commit_creds()</em> et <em>prepare_kernel_cred()</em> vont nous permettre de faire cela.
+Pour les appeler correctement, a partir de leur adresse, il faut d&rsquo;abord les définir.</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">regparm</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span><span class="n">commit_creds</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cred</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">regparm</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span><span class="n">prepare_kernel_cred</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cred</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">escalate_privs</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">commit_creds</span> <span class="o">=</span> <span class="mi">0</span><span class="n">x</span><span class="p">...;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">prepare_kernel_cred</span> <span class="o">=</span> <span class="mi">0</span><span class="n">x</span><span class="p">...;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">commit_creds</span><span class="p">(</span><span class="nf">prepare_kernel_cred</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>NB: Il y a plusieurs moyens de trouver les adresses de fonctions kernel. Le plus simple est de lire le fichier <em>/proc/kallsyms</em> qui map les adresses et le symboles kernels.</th>
+</tr>
+</thead>
+</table>
+<p>II ne reste donc plus qu&rsquo;à appeler la fonction <em>escalate_privs()</em>. Ce qui n&rsquo;est possible que si le kernel a des droits d&rsquo;execution en user-land (pas de <strong>SMEP</strong>). Sinon il faudra trouver un moyen détourné de faire l&rsquo;appel aux fonctions.</p>
+<p>Et maintenant le process détient des privilèges root sur la machine.</p>
+<h2 id="tldr" class="heading-element">
+  <a href="#tldr" class="heading-mark"></a>TLDR</h2><p>Pour simplifier, le but est d&rsquo;exploiter une vulnerabilité pour prendre le contrôle du flow d&rsquo;execution côté kernel. Ensuite, on va utiliser les fonctions kernel <em>commit_creds()</em> et <em>prepare_kernel_cred()</em> pour modifier les privilèges de notre process. Enfin, on va retourner en user-land pour continuer l&rsquo;execution de notre process avec les privilèges ameliorés.
+<img loading="lazy" src="/MyLittlePwney/MyLittlePwney/images/kernel_privesc.png" alt="Kernel Privesc" srcset="/MyLittlePwney/images/kernel_privesc.png?size=small, /MyLittlePwney/images/kernel_privesc.png?size=medium 1.5x, /MyLittlePwney/images/kernel_privesc.png?size=large 2x" sizes="auto" data-title="Kernel Privesc" style="background: url(/MyLittlePwney/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+</div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.122.0"><img class="hugo-icon" src="/MyLittlePwney/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/MyLittlePwney/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
@@ -711,7 +734,7 @@
     <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
   </noscript>
 </div><link rel="preload" href="/MyLittlePwney/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.css"><script src="/MyLittlePwney/lib/autocomplete/autocomplete.min.js" defer></script><script src="/MyLittlePwney/lib/fuse/fuse.min.js" defer></script><script src="/MyLittlePwney/lib/sharer/sharer.min.js" async defer></script><script src="/MyLittlePwney/lib/katex/katex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/auto-render.min.js" defer></script><script src="/MyLittlePwney/lib/katex/copy-tex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/mhchem.min.js" defer></script><script src="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/MyLittlePwney/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/MyLittlePwney/js/theme.min.js" defer></script><script>
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.css"><script src="/MyLittlePwney/lib/autocomplete/autocomplete.min.js" defer></script><script src="/MyLittlePwney/lib/fuse/fuse.min.js" defer></script><script src="/MyLittlePwney/lib/sharer/sharer.min.js" async defer></script><script src="/MyLittlePwney/lib/katex/katex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/auto-render.min.js" defer></script><script src="/MyLittlePwney/lib/katex/copy-tex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/mhchem.min.js" defer></script><script src="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/MyLittlePwney/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/MyLittlePwney/js/theme.min.js" defer></script><script>
       window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
       gtag('config', 'G-E5LRZC34M1', { 'anonymize_ip': true });
     </script><script src="https://www.googletagmanager.com/gtag/js?id=G-E5LRZC34M1" async></script></body>

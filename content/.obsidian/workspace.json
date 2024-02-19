@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/Heap Attacks/Attacks/House of Force.md",
+                "file": "pwn/Kernel/Kernel Privesc.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pwn/Heap Attacks/Attacks/House of Force.md",
+                "file": "pwn/Kernel/Kernel Privesc.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pwn/Heap Attacks/Attacks/House of Force.md",
+                "file": "pwn/Kernel/Kernel Privesc.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pwn/Heap Attacks/Attacks/House of Force.md"
+                "file": "pwn/Kernel/Kernel Privesc.md"
               }
             }
           }
@@ -147,5 +147,9 @@
     }
   },
   "active": "909e2f9d89a0e5d0",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "pwn/Heap Attacks/Attacks/House of Force.md",
+    "pwn/Kernel/Kernel Privesc.md",
+    "pwn/_index.md"
+  ]
 }

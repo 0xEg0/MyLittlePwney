@@ -2,14 +2,20 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/categories/attacks/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/categories/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/tags/kernel/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/categories/kernel/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/tags/pwn/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/tags/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/</loc><lastmod>2024-02-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/house-of-force/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/crypto/aes/</loc><lastmod>2024-02-14T02:56:25&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://0xeg0.github.io/MyLittlePwney/categories/attacks/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/browser-exploitation/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://0xeg0.github.io/MyLittlePwney/categories/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/tags/cheatsheet/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/categories/cheatsheet/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -33,9 +39,7 @@
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/linux-internals/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/crypto/maths/</loc><lastmod>2024-02-14T02:56:25&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://0xeg0.github.io/MyLittlePwney/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/web/nosql-injections/</loc><lastmod>2024-02-14T02:56:25&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://0xeg0.github.io/MyLittlePwney/tags/pwn/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/categories/pwn/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/tags/reverse/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -46,7 +50,6 @@
       <loc>https://0xeg0.github.io/MyLittlePwney/categories/shellcoding/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/pwn/shellcoding/</loc><lastmod>2024-02-14T02:07:04&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/web/sql-injections/</loc><lastmod>2024-02-14T02:56:25&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://0xeg0.github.io/MyLittlePwney/tags/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/tags/web/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/categories/web/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://0xeg0.github.io/MyLittlePwney/web/</loc><lastmod>2024-02-14T13:52:10&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>

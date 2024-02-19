@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>kernel - Tag - MyLittlePwney</title>
+    <link>https://0xeg0.github.io/MyLittlePwney/tags/kernel/</link>
+    <description>kernel - Tag | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 19 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/kernel/" rel="self" type="application/rss+xml" /><item>
+  <title>🪜 Kernel Privesc 🪜</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/</link>
+  <pubDate>Mon, 19 Feb 2024 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/</guid>
+  <description><![CDATA[OverviewL&rsquo;objectif de ce post est d&rsquo;aborder la couche d&rsquo;abstraction nécéssaire à la compréhension du pwn kernel. Pour cela, il est nécéssaire de comprendre comment les différents process interagissent avec le kernel, et comment un contrôle de flow d&rsquo;execution en kernel-mode peut nous permettre d&rsquo;améliorer nos privilèges en user-land.
+Process x KernelIl est important de noter que l&rsquo;on interagit avec le kernel de pleins de manières différentes. Que ce soit en modifiant le filesystem, avec des syscalls, en communiquant avec des devices&hellip; Toutes ces actions nécéssitent une intervention du kernel au niveau des process qui les initient.]]></description>
+</item>
+</channel>
+</rss>
