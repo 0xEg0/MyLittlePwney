@@ -2,7 +2,7 @@
 title: 🪜 Kernel Privesc 🪜
 date: 2024-02-19
 draft: false
-description: fa-solid fa-gear fa-fw fa-sm
+description: Introduction au pwn kernel, concept d'élévation des privilèges d'un process.
 categories:
   - attacks
   - kernel
