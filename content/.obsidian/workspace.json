@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/Kernel/Kernel Privesc.md",
+                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pwn/Kernel/Kernel Privesc.md",
+                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pwn/Kernel/Kernel Privesc.md",
+                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pwn/Kernel/Kernel Privesc.md"
+                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md"
               }
             }
           }
@@ -148,8 +148,12 @@
   },
   "active": "909e2f9d89a0e5d0",
   "lastOpenFiles": [
-    "pwn/Heap Attacks/Attacks/House of Force.md",
     "pwn/Kernel/Kernel Privesc.md",
+    "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
+    "pwn/Kernel/_index.md",
+    "pwn/Kernel/Attacks",
+    "pwn/Kernel/Sans titre.md",
+    "pwn/Heap Attacks/Attacks/House of Force.md",
     "pwn/_index.md"
   ]
 }

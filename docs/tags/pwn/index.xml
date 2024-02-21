@@ -3,7 +3,16 @@
     <title>pwn - Tag - MyLittlePwney</title>
     <link>https://0xeg0.github.io/MyLittlePwney/tags/pwn/</link>
     <description>pwn - Tag | MyLittlePwney</description>
-    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 19 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/pwn/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 21 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/pwn/" rel="self" type="application/rss+xml" /><item>
+  <title>Buffer Overflow Basic</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/</link>
+  <pubDate>Wed, 21 Feb 2024 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/</guid>
+  <description><![CDATA[OverviewTout comme pour une exploitation de BoF en user-land, notre objectif va être d&rsquo;overwrite la return address de la fonction vulnérable pour prendre le contrôle du flow d&rsquo;exécution. On se place ici dans le cas où aucune protection n&rsquo;est présente au niveau du kernel.
+DetailNotre objectif lors de l&rsquo;exploitation d&rsquo;un buffer overflow en kernel-land est de réussir a exécuter du code user-land tout en profitant de l&rsquo;exécution de code kernel-land pour élever nos privilèges.]]></description>
+</item>
+<item>
   <title>🪜 Kernel Privesc 🪜</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/</link>
   <pubDate>Mon, 19 Feb 2024 00:00:00 &#43;0000</pubDate>
@@ -76,14 +85,6 @@ DetailDans les versions de la GLIBC &lt; 2.29, il n&rsquo;y a pas de check sur l
   <author>Author</author>
   <guid>https://0xeg0.github.io/MyLittlePwney/pwn/fuzzing/</guid>
   <description><![CDATA[fa-solid fa-bug-slash fa-fw fa-sm]]></description>
-</item>
-<item>
-  <title>Heap Attacks/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/</link>
-  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
-  <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/</guid>
-  <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
 </item>
 </channel>
 </rss>

