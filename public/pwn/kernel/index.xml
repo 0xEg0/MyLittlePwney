@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kernel/ on MyLittlePwney</title>
+    <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/</link>
+    <description>Recent content in Kernel/ on MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 21 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://0xeg0.github.io/MyLittlePwney/pwn/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buffer Overflow Basic</title>
+      <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/</link>
+      <pubDate>Wed, 21 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/</guid>
+      <description>OverviewTout comme pour une exploitation de BoF en user-land, notre objectif va être d&amp;rsquo;overwrite la return address de la fonction vulnérable pour prendre le contrôle du flow d&amp;rsquo;exécution. On se place ici dans le cas où aucune protection n&amp;rsquo;est présente au niveau du kernel.&#xA;DetailNotre objectif lors de l&amp;rsquo;exploitation d&amp;rsquo;un buffer overflow en kernel-land est de réussir a exécuter du code user-land tout en profitant de l&amp;rsquo;exécution de code kernel-land pour élever nos privilèges.</description>
+    </item>
+    <item>
+      <title>🪜 Kernel Privesc 🪜</title>
+      <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/</link>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/</guid>
+      <description>OverviewL&amp;rsquo;objectif de ce post est d&amp;rsquo;aborder la couche d&amp;rsquo;abstraction nécéssaire à la compréhension du pwn kernel. Pour cela, il est nécéssaire de comprendre comment les différents process interagissent avec le kernel, et comment un contrôle de flow d&amp;rsquo;execution en kernel-mode peut nous permettre d&amp;rsquo;améliorer nos privilèges en user-land.&#xA;Process x KernelIl est important de noter que l&amp;rsquo;on interagit avec le kernel de pleins de manières différentes. Que ce soit en modifiant le filesystem, avec des syscalls, en communiquant avec des devices&amp;hellip; Toutes ces actions nécéssitent une intervention du kernel au niveau des process qui les initient.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,9 +1,17 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>pwn - Category - MyLittlePwney</title>
+    <title>Pwn - Category - MyLittlePwney</title>
     <link>https://0xeg0.github.io/MyLittlePwney/categories/pwn/</link>
-    <description>pwn - Category | MyLittlePwney</description>
-    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/categories/pwn/" rel="self" type="application/rss+xml" /><item>
+    <description>Pwn - Category | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/categories/pwn/" rel="self" type="application/rss+xml" /><item>
+  <title>IO Attacks/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/io-attacks/</link>
+  <pubDate>Sat, 11 Mar 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/io-attacks/</guid>
+  <description><![CDATA[fa-solid fa-code-compare fa-fw fa-sm]]></description>
+</item>
+<item>
   <title>Android Internals/</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
@@ -74,14 +82,6 @@
   <author>Author</author>
   <guid>https://0xeg0.github.io/MyLittlePwney/pwn/</guid>
   <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Windows Internals</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/windows-internals/</link>
-  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
-  <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/windows-internals/</guid>
-  <description><![CDATA[fa-brands fa-windows fa-fw fa-sm]]></description>
 </item>
 </channel>
 </rss>

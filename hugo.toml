@@ -151,6 +151,28 @@ enableEmoji = true
       # FixIt 0.2.16 | NEW set menu item type, optional values: ["mobile", "desktop"]
       type = ""
   [[menu.main]]
+    identifier = "io"
+    parent = "pwn"
+    # you can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    name = "IO Attacks"
+    url = "/pwn/io-attacks/"
+    # title will be shown when you hover on this menu link
+    title = ""
+    weight = 4
+    # FixIt 0.2.14 | NEW add user-defined content to menu items
+    [menu.main.params]
+      # add css class to a specific menu item
+      class = ""
+      # whether set as a draft menu item whose function is similar to a draft post/page
+      draft = false
+      # FixIt 0.2.16 | NEW add fontawesome icon to a specific menu item
+      icon = "fa-solid fa-code-compare"
+      # FixIt 0.2.16 | NEW set menu item type, optional values: ["mobile", "desktop"]
+      type = ""
+  [[menu.main]]
     identifier = "heap"
     parent = "pwn"
     # you can add extra information before the name (HTML format is supported), such as icons
@@ -161,7 +183,7 @@ enableEmoji = true
     url = "/pwn/heap-attacks/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 3
+    weight = 4
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -183,7 +205,7 @@ enableEmoji = true
     url = "/pwn/shellcoding/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 4
+    weight = 5
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -205,7 +227,7 @@ enableEmoji = true
     url = "/pwn/kernel/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 5
+    weight = 6
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -227,7 +249,7 @@ enableEmoji = true
     url = "#"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 6
+    weight = 7
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -249,7 +271,7 @@ enableEmoji = true
     url = "/pwn/linux-internals/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 7
+    weight = 8
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -271,7 +293,7 @@ enableEmoji = true
     url = "/pwn/windows-internals/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 8
+    weight = 9
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -293,7 +315,7 @@ enableEmoji = true
     url = "/pwn/android-internals/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 9
+    weight = 10
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -315,7 +337,7 @@ enableEmoji = true
     url = "#"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 10
+    weight = 11
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -337,7 +359,7 @@ enableEmoji = true
     url = "/pwn/fuzzing/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 11
+    weight = 12
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -359,7 +381,7 @@ enableEmoji = true
     url = "/pwn/browser-exploitation/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 12
+    weight = 13
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -381,7 +403,7 @@ enableEmoji = true
     url = "#"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 13
+    weight = 14
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item
@@ -403,7 +425,7 @@ enableEmoji = true
     url = "/pwn/cheat-sheets/"
     # title will be shown when you hover on this menu link
     title = ""
-    weight = 14
+    weight = 15
     # FixIt 0.2.14 | NEW add user-defined content to menu items
     [menu.main.params]
       # add css class to a specific menu item

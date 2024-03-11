@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>WEB - Baguette VPN - FCSC 2021 - MyLittlePwney</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="Analyse![[Pasted image 20231207143508.png]]
+Pour le début nous avons 2 possibilités. Soit on FUZZ les endpoints, soit on fait un joli CTRL-U pour trouver les 2 endpoints suivants:
+1 2 3 4 5 6 7 8 &lt;!-- Changelog : - Site web v0 - /api/image : CDN interne d&#39;images - /api/debug TODO : - VPN --&gt; Lorsque l&rsquo;on accède au /api/image, on tombe sur une page qui semble attendre un paramètre GET:" /><meta name="keywords" content='web, fcsc' /><meta itemprop="name" content="WEB - Baguette VPN - FCSC 2021">
+<meta itemprop="description" content="Analyse![[Pasted image 20231207143508.png]]
+Pour le début nous avons 2 possibilités. Soit on FUZZ les endpoints, soit on fait un joli CTRL-U pour trouver les 2 endpoints suivants:
+1 2 3 4 5 6 7 8 &lt;!-- Changelog : - Site web v0 - /api/image : CDN interne d&#39;images - /api/debug TODO : - VPN --&gt; Lorsque l&rsquo;on accède au /api/image, on tombe sur une page qui semble attendre un paramètre GET:"><meta itemprop="datePublished" content="2023-02-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-02-14T02:07:04+01:00" />
+<meta itemprop="wordCount" content="549"><meta itemprop="image" content="https://0xeg0.github.io/image/logo.png" />
+<meta itemprop="keywords" content="web,fcsc," /><meta property="og:title" content="WEB - Baguette VPN - FCSC 2021" />
+<meta property="og:description" content="Analyse![[Pasted image 20231207143508.png]]
+Pour le début nous avons 2 possibilités. Soit on FUZZ les endpoints, soit on fait un joli CTRL-U pour trouver les 2 endpoints suivants:
+1 2 3 4 5 6 7 8 &lt;!-- Changelog : - Site web v0 - /api/image : CDN interne d&#39;images - /api/debug TODO : - VPN --&gt; Lorsque l&rsquo;on accède au /api/image, on tombe sur une page qui semble attendre un paramètre GET:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://0xeg0.github.io/MyLittlePwney/writeups/fcsc/web_baguette_vpn/" /><meta property="og:image" content="https://0xeg0.github.io/image/logo.png" /><meta property="article:section" content="writeups" />
+<meta property="article:published_time" content="2023-02-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-14T02:07:04+01:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://0xeg0.github.io/image/logo.png" /><meta name="twitter:title" content="WEB - Baguette VPN - FCSC 2021"/>
+<meta name="twitter:description" content="Analyse![[Pasted image 20231207143508.png]]
+Pour le début nous avons 2 possibilités. Soit on FUZZ les endpoints, soit on fait un joli CTRL-U pour trouver les 2 endpoints suivants:
+1 2 3 4 5 6 7 8 &lt;!-- Changelog : - Site web v0 - /api/image : CDN interne d&#39;images - /api/debug TODO : - VPN --&gt; Lorsque l&rsquo;on accède au /api/image, on tombe sur une page qui semble attendre un paramètre GET:"/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://0xeg0.github.io/MyLittlePwney/writeups/fcsc/web_baguette_vpn/" /><link rel="prev" href="https://0xeg0.github.io/MyLittlePwney/writeups/test/" /><link rel="next" href="https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/-pwntools/" /><link rel="stylesheet" href="/MyLittlePwney/css/style.min.css"><link rel="preload" href="/MyLittlePwney/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/MyLittlePwney/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "WEB - Baguette VPN - FCSC 2021",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/0xeg0.github.io\/MyLittlePwney\/writeups\/fcsc\/web_baguette_vpn\/"
+    },"genre": "writeups","keywords": "web, fcsc","wordcount":  549 ,
+    "url": "https:\/\/0xeg0.github.io\/MyLittlePwney\/writeups\/fcsc\/web_baguette_vpn\/","datePublished": "2023-02-20T00:00:00+00:00","dateModified": "2024-02-14T02:07:04+01:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Author"
+      },"description": ""
+  }
+  </script><link rel="stylesheet" type="" href="/MyLittlePwney/css/custom.css">
+  </head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/MyLittlePwney/" title="MyLittlePwney"><img loading="lazy" src="/MyLittlePwney/images/logo.png" alt="MyLittlePwney" data-title="MyLittlePwney" class="logo" style="background: url(/MyLittlePwney/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">MyLittlePwney</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/MyLittlePwney/writeups/"
+                title="CTF Writeups"
+                
+              ><i class="fa-solid fa-flag fa-fw fa-sm" aria-hidden="true"></i> Writeups</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/writeups/fcsc/"
+                          title="France Cyber Security Challenge"
+                          
+                        ><i class="fa-solid fa-medal fa-fw fa-sm" aria-hidden="true"></i> FCSC</a>
+                      </li></ul></li><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/MyLittlePwney/pwn/"
+                
+                
+              ><i class="fa-solid fa-bug fa-fw fa-sm" aria-hidden="true"></i> Pwn</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/bof/"
+                          
+                          
+                        ><i class="fa-brands fa-stack-overflow fa-fw fa-sm" aria-hidden="true"></i> Buffer Overflow</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/fmt/"
+                          
+                          
+                        ><i class="fa-solid fa-file-code fa-fw fa-sm" aria-hidden="true"></i> Format Strings</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/heap/"
+                          
+                          
+                        ><i class="fa-solid fa-trash-can fa-fw fa-sm" aria-hidden="true"></i> Heap Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/shellcoding/"
+                          
+                          
+                        ><i class="fa-solid fa-microchip fa-fw fa-sm" aria-hidden="true"></i> Shellcoding</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/kernel/"
+                          
+                          
+                        ><i class="fa-solid fa-gear fa-fw fa-sm" aria-hidden="true"></i> Kernel</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/linux/"
+                          
+                          
+                        ><i class="fa-brands fa-linux fa-fw fa-sm" aria-hidden="true"></i> Linux Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/windows/"
+                          
+                          
+                        ><i class="fa-brands fa-windows fa-fw fa-sm" aria-hidden="true"></i> Windows Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/android/"
+                          
+                          
+                        ><i class="fa-brands fa-android fa-fw fa-sm" aria-hidden="true"></i> Android Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/fuzzing/"
+                          
+                          
+                        ><i class="fa-solid fa-bug-slash fa-fw fa-sm" aria-hidden="true"></i> Fuzzing</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/browser/"
+                          
+                          
+                        ><i class="fa-brands fa-chrome fa-fw fa-sm" aria-hidden="true"></i> Browser Exploitation</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/cheatsheets/"
+                          
+                          
+                        ><i class="fa-solid fa-file-lines fa-fw fa-sm" aria-hidden="true"></i> Cheat Sheets</a>
+                      </li></ul></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/MyLittlePwney/reverse/"
+                
+                
+              ><i class="fa-solid fa-gears fa-fw fa-sm" aria-hidden="true"></i> Reverse</a></li><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/MyLittlePwney/web/"
+                
+                
+              ><i class="fa-solid fa-spider fa-fw fa-sm" aria-hidden="true"></i> Web</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/sqli/"
+                          
+                          
+                        ><i class="fa-solid fa-syringe fa-fw fa-sm" aria-hidden="true"></i> SQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/nosqli/"
+                          
+                          
+                        ><i class="fa-solid fa-database fa-fw fa-sm" aria-hidden="true"></i> NoSQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/jwt/"
+                          
+                          
+                        ><i class="fa-solid fa-cookie fa-fw fa-sm" aria-hidden="true"></i> JWT Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/graphql/"
+                          
+                          
+                        ><i class="fa-solid fa-circle-nodes fa-fw fa-sm" aria-hidden="true"></i> GraphQL API</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/deserialization/"
+                          
+                          
+                        ><i class="fa-solid fa-file-zipper fa-fw fa-sm" aria-hidden="true"></i> Insecure Deserialization</a>
+                      </li></ul></li><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/MyLittlePwney/crypto/"
+                
+                
+              ><i class="fa-solid fa-lock fa-fw fa-sm" aria-hidden="true"></i> Crypto</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/maths/"
+                          
+                          
+                        ><i class="fa-solid fa-square-root-variable fa-fw fa-sm" aria-hidden="true"></i> Maths</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/aes/"
+                          
+                          
+                        ><i class="fa-solid fa-arrows-left-right-to-line fa-fw fa-sm" aria-hidden="true"></i> AES</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/rsa/"
+                          
+                          
+                        ><i class="fa-solid fa-key fa-fw fa-sm" aria-hidden="true"></i> RSA</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/diffie-hellman/"
+                          
+                          
+                        ><i class="fa-solid fa-superscript fa-fw fa-sm" aria-hidden="true"></i> Diffie-Hellman</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/elliptic-curves/"
+                          
+                          
+                        ><i class="fa-solid fa-wave-square fa-fw fa-sm" aria-hidden="true"></i> Elliptic Curves</a>
+                      </li></ul></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/MyLittlePwney/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/MyLittlePwney/" title="MyLittlePwney"><img loading="lazy" src="/MyLittlePwney/images/logo.png" alt="/images/logo.png" data-title="/images/logo.png" class="logo" style="background: url(/MyLittlePwney/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">MyLittlePwney</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/MyLittlePwney/writeups/"
+                    title="CTF Writeups"
+                    
+                  ><i class="fa-solid fa-flag fa-fw fa-sm" aria-hidden="true"></i> Writeups</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/writeups/fcsc/"
+                          title="France Cyber Security Challenge"
+                          
+                        ><i class="fa-solid fa-medal fa-fw fa-sm" aria-hidden="true"></i> FCSC</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/MyLittlePwney/pwn/"
+                    
+                    
+                  ><i class="fa-solid fa-bug fa-fw fa-sm" aria-hidden="true"></i> Pwn</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/bof/"
+                          
+                          
+                        ><i class="fa-brands fa-stack-overflow fa-fw fa-sm" aria-hidden="true"></i> Buffer Overflow</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/fmt/"
+                          
+                          
+                        ><i class="fa-solid fa-file-code fa-fw fa-sm" aria-hidden="true"></i> Format Strings</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/heap/"
+                          
+                          
+                        ><i class="fa-solid fa-trash-can fa-fw fa-sm" aria-hidden="true"></i> Heap Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/shellcoding/"
+                          
+                          
+                        ><i class="fa-solid fa-microchip fa-fw fa-sm" aria-hidden="true"></i> Shellcoding</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/kernel/"
+                          
+                          
+                        ><i class="fa-solid fa-gear fa-fw fa-sm" aria-hidden="true"></i> Kernel</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/linux/"
+                          
+                          
+                        ><i class="fa-brands fa-linux fa-fw fa-sm" aria-hidden="true"></i> Linux Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/windows/"
+                          
+                          
+                        ><i class="fa-brands fa-windows fa-fw fa-sm" aria-hidden="true"></i> Windows Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/android/"
+                          
+                          
+                        ><i class="fa-brands fa-android fa-fw fa-sm" aria-hidden="true"></i> Android Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/fuzzing/"
+                          
+                          
+                        ><i class="fa-solid fa-bug-slash fa-fw fa-sm" aria-hidden="true"></i> Fuzzing</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/browser/"
+                          
+                          
+                        ><i class="fa-brands fa-chrome fa-fw fa-sm" aria-hidden="true"></i> Browser Exploitation</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/pwn/cheatsheets/"
+                          
+                          
+                        ><i class="fa-solid fa-file-lines fa-fw fa-sm" aria-hidden="true"></i> Cheat Sheets</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/MyLittlePwney/reverse/"
+                  
+                  
+                ><i class="fa-solid fa-gears fa-fw fa-sm" aria-hidden="true"></i> Reverse</a></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/MyLittlePwney/web/"
+                    
+                    
+                  ><i class="fa-solid fa-spider fa-fw fa-sm" aria-hidden="true"></i> Web</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/sqli/"
+                          
+                          
+                        ><i class="fa-solid fa-syringe fa-fw fa-sm" aria-hidden="true"></i> SQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/nosqli/"
+                          
+                          
+                        ><i class="fa-solid fa-database fa-fw fa-sm" aria-hidden="true"></i> NoSQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/jwt/"
+                          
+                          
+                        ><i class="fa-solid fa-cookie fa-fw fa-sm" aria-hidden="true"></i> JWT Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/graphql/"
+                          
+                          
+                        ><i class="fa-solid fa-circle-nodes fa-fw fa-sm" aria-hidden="true"></i> GraphQL API</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/web/deserialization/"
+                          
+                          
+                        ><i class="fa-solid fa-file-zipper fa-fw fa-sm" aria-hidden="true"></i> Insecure Deserialization</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/MyLittlePwney/crypto/"
+                    
+                    
+                  ><i class="fa-solid fa-lock fa-fw fa-sm" aria-hidden="true"></i> Crypto</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/maths/"
+                          
+                          
+                        ><i class="fa-solid fa-square-root-variable fa-fw fa-sm" aria-hidden="true"></i> Maths</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/aes/"
+                          
+                          
+                        ><i class="fa-solid fa-arrows-left-right-to-line fa-fw fa-sm" aria-hidden="true"></i> AES</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/rsa/"
+                          
+                          
+                        ><i class="fa-solid fa-key fa-fw fa-sm" aria-hidden="true"></i> RSA</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/diffie-hellman/"
+                          
+                          
+                        ><i class="fa-solid fa-superscript fa-fw fa-sm" aria-hidden="true"></i> Diffie-Hellman</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/MyLittlePwney/crypto/elliptic-curves/"
+                          
+                          
+                        ><i class="fa-solid fa-wave-square fa-fw fa-sm" aria-hidden="true"></i> Elliptic Curves</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/MyLittlePwney/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="Switch Theme"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">WEB - Baguette VPN - FCSC 2021</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="analyse" class="heading-element">
+  <a href="#analyse" class="heading-mark"></a>Analyse</h2><p>![[Pasted image 20231207143508.png]]</p>
+<p>Pour le début nous avons 2 possibilités. Soit on FUZZ les endpoints, soit on fait un joli <strong>CTRL-U</strong> pour trouver les 2 endpoints suivants:</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">Changelog :
+</span></span></span><span class="line"><span class="cl"><span class="c">	- Site web v0
+</span></span></span><span class="line"><span class="cl"><span class="c">	- /api/image : CDN interne d&#39;images
+</span></span></span><span class="line"><span class="cl"><span class="c">	- /api/debug
+</span></span></span><span class="line"><span class="cl"><span class="c">TODO :
+</span></span></span><span class="line"><span class="cl"><span class="c">	- VPN
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Lorsque l&rsquo;on accède au <em>/api/image</em>, on tombe sur une page qui semble attendre un paramètre GET:</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTTP" data-lang="HTTP"><span class="line"><span class="cl"><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">BAD REQUEST</span>
+</span></span><span class="line"><span class="cl"><span class="n">Server</span><span class="o">:</span> <span class="l">Werkzeug/2.2.3 Python/3.7.3</span>
+</span></span><span class="line"><span class="cl"><span class="n">Date</span><span class="o">:</span> <span class="l">Thu, 07 Dec 2023 13:39:25 GMT</span>
+</span></span><span class="line"><span class="cl"><span class="n">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=utf-8</span>
+</span></span><span class="line"><span class="cl"><span class="n">Content-Length</span><span class="o">:</span> <span class="l">19</span>
+</span></span><span class="line"><span class="cl"><span class="n">Connection</span><span class="o">:</span> <span class="l">close</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Paramètre manquant</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Le endpoint <em>/api/debug</em> est beaucoup plus bavard. Ce dernier nous donne toute une liste d&rsquo;objets utilisés par l&rsquo;application <strong>Python</strong> ainsi que les attributs qui en découlent.
+![[Pasted image 20231207144610.png]]
+Et au milieu de l&rsquo;output, on a un attribut assez intéressant:</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-HTTP" data-lang="HTTP"><span class="line"><span class="cl"><span class="err">&#34;__file__&#34;:&#34;/app/baguettevpn_server_app_v0.py&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>On peut se douter que c&rsquo;est le code source de l&rsquo;application. Et si on essaye d&rsquo;y accèder à la racine du site, le code source s&rsquo;affiche : http://172.19.0.2:1337/baguettevpn_server_app_v0.py.</p>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># /usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding:utf-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- requirements:requirements.txt -*-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Congrats! Here is the flag for Baguette VPN 1/2</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   FCSC{e5e3234f8dae908461c6ee777ee329a2c5ab3b1a8b277ff2ae288743bbc6d880}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">urllib3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">Response</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/api&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">api</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/api/image&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">image</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">filename</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;fn&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">http</span> <span class="o">=</span> <span class="n">urllib3</span><span class="o">.</span><span class="n">PoolManager</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://baguette-vpn-cdn&#39;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Paramètre manquant&#39;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/api/secret&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">admin</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">remote_addr</span> <span class="o">==</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;X-API-KEY&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;b99cc420eb25205168e83190bae48a12&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&#34;secret&#34;</span><span class="p">:</span> <span class="n">FLAG</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Interdit: mauvaise clé d</span><span class="se">\&#39;</span><span class="s1">API&#39;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">403</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Interdit: mauvaise adresse IP&#39;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">403</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&#34;/api/debug&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">debug</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;__version__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&lt;path:path&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">load_page</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s1">&#39;..&#39;</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="s1">&#39;Interdit&#39;</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">403</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mime</span> <span class="o">=</span> <span class="s1">&#39;text/&#39;</span> <span class="o">+</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">mimetype</span><span class="o">=</span><span class="n">mime</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">404</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Parmi les fonctions intéressantes:</p>
+<ul>
+<li><strong>image()</strong>: Va effectuer un GET sur une ressource que l&rsquo;on contrôle (SSRF)</li>
+<li><strong>admin()</strong>: Nous donne le flag, a condition que la requête soit faite depuis le localhost et qu&rsquo;elle contienne un header HTTP particulier.</li>
+<li><strong>load_page()</strong>: Nous donne le contenu de n&rsquo;importe quel fichier du server web.</li>
+</ul>
+<h2 id="exploit" class="heading-element">
+  <a href="#exploit" class="heading-mark"></a>Exploit</h2><h3 id="check-1" class="heading-element">
+  <a href="#check-1" class="heading-mark"></a>Check 1</h3><p>En premier lieu on va devoir exploiter la SSRF pour bypass le premier check de la fonction <strong>admin()</strong>.
+La seule contrainte est que notre input est ajoutée à la fin de : http://baguette-vpn-cdn. Donc on ne contrôle pas le domaine cible. Sauf si&hellip; On considère que le domaine imposé est enfait un sous domaine:</p>
+<ul>
+<li>
+<p>input : /api/secret</p>
+</li>
+<li>
+<p>URL:    http://baguette-vpn-cdn/api/secret</p>
+</li>
+<li>
+<p>input : .localhost:1337/api/secret</p>
+</li>
+<li>
+<p>URL:    <a href="http://baguette-vpn-cdn.localhost:1337/api/secret"target="_blank" rel="external nofollow noopener noreferrer">http://baguette-vpn-cdn.localhost:1337/api/secret</a></p>
+</li>
+</ul>
+<p>![[Pasted image 20231207150310.png]]</p>
+<p>Bingo premier check bypass!</p>
+<h3 id="check-2" class="heading-element">
+  <a href="#check-2" class="heading-mark"></a>Check 2</h3><p>Maintenant on doit trouver un moyen de passer le header</p>
+</div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.122.0"><img class="hugo-icon" src="/MyLittlePwney/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/MyLittlePwney/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/MyLittlePwney/"></a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><a href="https://github.com/hugo-fixit/FixIt" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="preload" href="/MyLittlePwney/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/MyLittlePwney/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.css"><script src="/MyLittlePwney/lib/autocomplete/autocomplete.min.js" defer></script><script src="/MyLittlePwney/lib/fuse/fuse.min.js" defer></script><script src="/MyLittlePwney/lib/sharer/sharer.min.js" async defer></script><script src="/MyLittlePwney/lib/katex/katex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/auto-render.min.js" defer></script><script src="/MyLittlePwney/lib/katex/copy-tex.min.js" defer></script><script src="/MyLittlePwney/lib/katex/mhchem.min.js" defer></script><script src="/MyLittlePwney/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/MyLittlePwney/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/MyLittlePwney/js/theme.min.js" defer></script></body>
+</html>
