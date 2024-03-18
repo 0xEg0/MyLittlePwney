@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4d28d16b9c037453",
+        "id": "bef895043ba012a7",
         "type": "tabs",
         "children": [
           {
-            "id": "909e2f9d89a0e5d0",
+            "id": "35d5f16f333debdb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
+                "file": "pwn/Stack Buffer Overflow/_index.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
+                "file": "pwn/Stack Buffer Overflow/_index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
+                "file": "pwn/Stack Buffer Overflow/_index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pwn/Kernel/Attacks/Buffer Overflow Basic.md"
+                "file": "pwn/Stack Buffer Overflow/_index.md"
               }
             }
           }
@@ -146,10 +146,14 @@
       "command-palette:Ouvrir la palette de commandes": false
     }
   },
-  "active": "909e2f9d89a0e5d0",
+  "active": "35d5f16f333debdb",
   "lastOpenFiles": [
-    "pwn/Kernel/Kernel Privesc.md",
+    "pwn/IO Attacks/_index.md",
+    "pwn/IO Attacks",
+    "pwn/Stack Buffer Overflow/_index.md",
+    "pwn/Stack Buffer Overflow",
     "pwn/Kernel/Attacks/Buffer Overflow Basic.md",
+    "pwn/Kernel/Kernel Privesc.md",
     "pwn/Kernel/_index.md",
     "pwn/Kernel/Attacks",
     "pwn/Kernel/Sans titre.md",
