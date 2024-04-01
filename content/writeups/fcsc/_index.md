@@ -1,5 +1,5 @@
 ---
-title: 'FCSC/'
+title: FCSC/
 date: 2023-02-20
 draft: false
 categories:
@@ -8,4 +8,5 @@ categories:
 tags:
   - writeups
   - fcsc
+description: fa-solid fa-medal
 ---
