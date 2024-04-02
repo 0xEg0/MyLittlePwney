@@ -10,6 +10,7 @@ tags:
   - pwn
   - format_string
   - HSR
+  - writeups
 ---
 ## Binary Analysis
 Pour analyser le binaire, on va commencer par l'ouvrir avec un décompilo, comme **Binja**. Le binaire n'étant pas strippé, on peut s'aider des symboles pour deviner ce que fait chaque fonction.
