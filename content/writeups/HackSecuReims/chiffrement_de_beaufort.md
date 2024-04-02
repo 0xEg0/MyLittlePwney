@@ -1,7 +1,7 @@
 ---
 title: Chiffrement de Beaufort -  HSR 2024
 date: 2024-04-01
-draft: true
+draft: false
 categories:
   - format string
   - HSR
