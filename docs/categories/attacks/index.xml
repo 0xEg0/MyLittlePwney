@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Attacks - Category - MyLittlePwney</title>
+    <title>attacks - Category - MyLittlePwney</title>
     <link>https://0xeg0.github.io/MyLittlePwney/categories/attacks/</link>
-    <description>Attacks - Category | MyLittlePwney</description>
+    <description>attacks - Category | MyLittlePwney</description>
     <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 21 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/categories/attacks/" rel="self" type="application/rss+xml" /><item>
   <title>Buffer Overflow Basic</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/</link>

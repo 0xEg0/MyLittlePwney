@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Pwn - Category - MyLittlePwney</title>
+    <title>pwn - Category - MyLittlePwney</title>
     <link>https://0xeg0.github.io/MyLittlePwney/categories/pwn/</link>
-    <description>Pwn - Category | MyLittlePwney</description>
+    <description>pwn - Category | MyLittlePwney</description>
     <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/categories/pwn/" rel="self" type="application/rss+xml" /><item>
   <title>IO Attacks/</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/io-attacks/</link>
@@ -26,14 +26,6 @@
   <author>Author</author>
   <guid>https://0xeg0.github.io/MyLittlePwney/pwn/browser-exploitation/</guid>
   <description><![CDATA[fa-brands fa-chrome fa-fw fa-sm]]></description>
-</item>
-<item>
-  <title>Buffer Overflow/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</link>
-  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
-  <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</guid>
-  <description><![CDATA[fa-brands fa-stack-overflow fa-fw me-1]]></description>
 </item>
 <item>
   <title>Cheat Sheets</title>
@@ -82,6 +74,14 @@
   <author>Author</author>
   <guid>https://0xeg0.github.io/MyLittlePwney/pwn/</guid>
   <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Stack Buffer Overflow/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/stack-buffer-overflow/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/stack-buffer-overflow/</guid>
+  <description><![CDATA[fa-brands fa-stack-overflow fa-fw me-1]]></description>
 </item>
 </channel>
 </rss>

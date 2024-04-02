@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Pwn - Tag - MyLittlePwney</title>
+    <title>pwn - Tag - MyLittlePwney</title>
     <link>https://0xeg0.github.io/MyLittlePwney/tags/pwn/</link>
-    <description>Pwn - Tag | MyLittlePwney</description>
+    <description>pwn - Tag | MyLittlePwney</description>
     <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 21 Feb 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/pwn/" rel="self" type="application/rss+xml" /><item>
   <title>Buffer Overflow Basic</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/</link>
@@ -63,14 +63,6 @@ DetailDans les versions de la GLIBC &lt; 2.29, il n&rsquo;y a pas de check sur l
   <description><![CDATA[fa-brands fa-chrome fa-fw fa-sm]]></description>
 </item>
 <item>
-  <title>Buffer Overflow/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</link>
-  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
-  <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/buffer-overflow/</guid>
-  <description><![CDATA[fa-brands fa-stack-overflow fa-fw me-1]]></description>
-</item>
-<item>
   <title>Cheat Sheets</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
@@ -85,6 +77,14 @@ DetailDans les versions de la GLIBC &lt; 2.29, il n&rsquo;y a pas de check sur l
   <author>Author</author>
   <guid>https://0xeg0.github.io/MyLittlePwney/pwn/format-strings/</guid>
   <description><![CDATA[fa-solid fa-file-code fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Fuzzing/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/pwn/fuzzing/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/fuzzing/</guid>
+  <description><![CDATA[fa-solid fa-bug-slash fa-fw fa-sm]]></description>
 </item>
 </channel>
 </rss>

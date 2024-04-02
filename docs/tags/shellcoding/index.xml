@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Shellcoding - Tag - MyLittlePwney</title>
+    <title>shellcoding - Tag - MyLittlePwney</title>
     <link>https://0xeg0.github.io/MyLittlePwney/tags/shellcoding/</link>
-    <description>Shellcoding - Tag | MyLittlePwney</description>
+    <description>shellcoding - Tag | MyLittlePwney</description>
     <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/shellcoding/" rel="self" type="application/rss+xml" /><item>
   <title>Shellcoding/</title>
   <link>https://0xeg0.github.io/MyLittlePwney/pwn/shellcoding/</link>

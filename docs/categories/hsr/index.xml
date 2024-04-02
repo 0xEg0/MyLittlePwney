@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>HSR - Category - MyLittlePwney</title>
+    <link>https://0xeg0.github.io/MyLittlePwney/categories/hsr/</link>
+    <description>HSR - Category | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/categories/hsr/" rel="self" type="application/rss+xml" /><item>
+  <title>HackSecuReims/</title>
+  <link>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/</link>
+  <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/</guid>
+  <description><![CDATA[fa-solid fa-skull-crossbones]]></description>
+</item>
+</channel>
+</rss>
