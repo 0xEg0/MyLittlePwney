@@ -11,8 +11,8 @@
 # website title
 title = "MyLittlePwney"
 # Hostname (and path) to the root
-baseURL = "https://0xeg0.github.io/MyLittlePwney"
-#baseURL = "http://localhost:1313"
+# baseURL = "https://0xeg0.github.io/MyLittlePwney"
+baseURL = "http://my.littlepwney.fr/"
 # theme list
 theme = ["FixIt"] # enable in your site config file
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
