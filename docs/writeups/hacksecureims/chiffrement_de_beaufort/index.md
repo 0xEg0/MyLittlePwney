@@ -116,5 +116,5 @@ io.close()
 ---
 
 > Author:   
-> URL: https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/chiffrement_de_beaufort/  
+> URL: http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/  
 

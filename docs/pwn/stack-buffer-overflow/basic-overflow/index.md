@@ -128,5 +128,5 @@ Pour finaliser la technique d&#39;exploitation, on va faire un petit script pyth
 ---
 
 > Author:   
-> URL: https://0xeg0.github.io/MyLittlePwney/pwn/stack-buffer-overflow/basic-overflow/  
+> URL: http://my.littlepwney.fr/pwn/stack-buffer-overflow/basic-overflow/  
 

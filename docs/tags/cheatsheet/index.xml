@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>cheatsheet - Tag - MyLittlePwney</title>
-    <link>https://0xeg0.github.io/MyLittlePwney/tags/cheatsheet/</link>
-    <description>cheatsheet - Tag | MyLittlePwney</description>
-    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/tags/cheatsheet/" rel="self" type="application/rss+xml" /><item>
+    <title>Cheatsheet - Tag - MyLittlePwney</title>
+    <link>http://my.littlepwney.fr/tags/cheatsheet/</link>
+    <description>Cheatsheet - Tag | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://my.littlepwney.fr/tags/cheatsheet/" rel="self" type="application/rss+xml" /><item>
   <title>Cheat Sheets</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</link>
+  <link>http://my.littlepwney.fr/pwn/cheat-sheets/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</guid>
+  <guid>http://my.littlepwney.fr/pwn/cheat-sheets/</guid>
   <description><![CDATA[fa-solid fa-file-lines fa-fw fa-sm]]></description>
 </item>
 </channel>

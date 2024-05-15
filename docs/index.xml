@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>MyLittlePwney</title>
-    <link>https://0xeg0.github.io/MyLittlePwney/</link>
+    <link>http://my.littlepwney.fr/</link>
     <description>My little infosec blog</description>
     <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate>
-      <atom:link href="https://0xeg0.github.io/MyLittlePwney/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="http://my.littlepwney.fr/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

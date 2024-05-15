@@ -103,5 +103,5 @@ int main() {
 ---
 
 > Author:   
-> URL: https://0xeg0.github.io/MyLittlePwney/pwn/kernel/attacks/buffer-overflow-basic/  
+> URL: http://my.littlepwney.fr/pwn/kernel/attacks/buffer-overflow-basic/  
 

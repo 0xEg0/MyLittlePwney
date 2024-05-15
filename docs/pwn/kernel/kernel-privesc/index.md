@@ -58,5 +58,5 @@ Pour simplifier, le but est d&#39;exploiter une vulnerabilité pour prendre le c
 ---
 
 > Author:   
-> URL: https://0xeg0.github.io/MyLittlePwney/pwn/kernel/kernel-privesc/  
+> URL: http://my.littlepwney.fr/pwn/kernel/kernel-privesc/  
 

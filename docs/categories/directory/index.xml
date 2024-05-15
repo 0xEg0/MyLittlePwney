@@ -1,86 +1,86 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>directory - Category - MyLittlePwney</title>
-    <link>https://0xeg0.github.io/MyLittlePwney/categories/directory/</link>
-    <description>directory - Category | MyLittlePwney</description>
-    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://0xeg0.github.io/MyLittlePwney/categories/directory/" rel="self" type="application/rss+xml" /><item>
+    <title>Directory - Category - MyLittlePwney</title>
+    <link>http://my.littlepwney.fr/categories/directory/</link>
+    <description>Directory - Category | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://my.littlepwney.fr/categories/directory/" rel="self" type="application/rss+xml" /><item>
   <title>HackSecuReims/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/</link>
+  <link>http://my.littlepwney.fr/writeups/hacksecureims/</link>
   <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/</guid>
+  <guid>http://my.littlepwney.fr/writeups/hacksecureims/</guid>
   <description><![CDATA[fa-solid fa-skull-crossbones]]></description>
 </item>
 <item>
   <title>IO Attacks/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/io-attacks/</link>
+  <link>http://my.littlepwney.fr/pwn/io-attacks/</link>
   <pubDate>Sat, 11 Mar 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/io-attacks/</guid>
+  <guid>http://my.littlepwney.fr/pwn/io-attacks/</guid>
   <description><![CDATA[fa-solid fa-code-compare fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>AES/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/crypto/aes/</link>
+  <link>http://my.littlepwney.fr/crypto/aes/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/crypto/aes/</guid>
+  <guid>http://my.littlepwney.fr/crypto/aes/</guid>
   <description><![CDATA[fa-solid fa-arrows-left-right-to-line fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>Android Internals/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</link>
+  <link>http://my.littlepwney.fr/pwn/android-internals/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</guid>
+  <guid>http://my.littlepwney.fr/pwn/android-internals/</guid>
   <description><![CDATA[fa-brands fa-android fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>Attacks/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/</link>
+  <link>http://my.littlepwney.fr/pwn/heap-attacks/attacks/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/heap-attacks/attacks/</guid>
+  <guid>http://my.littlepwney.fr/pwn/heap-attacks/attacks/</guid>
   <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>Browser Exploitation/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/browser-exploitation/</link>
+  <link>http://my.littlepwney.fr/pwn/browser-exploitation/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/browser-exploitation/</guid>
+  <guid>http://my.littlepwney.fr/pwn/browser-exploitation/</guid>
   <description><![CDATA[fa-brands fa-chrome fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>Cheat Sheets</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</link>
+  <link>http://my.littlepwney.fr/pwn/cheat-sheets/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/pwn/cheat-sheets/</guid>
+  <guid>http://my.littlepwney.fr/pwn/cheat-sheets/</guid>
   <description><![CDATA[fa-solid fa-file-lines fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>Crypto/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/crypto/</link>
+  <link>http://my.littlepwney.fr/crypto/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/crypto/</guid>
+  <guid>http://my.littlepwney.fr/crypto/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
   <title>Diffie-Hellman/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/crypto/diffie-hellman/</link>
+  <link>http://my.littlepwney.fr/crypto/diffie-hellman/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/crypto/diffie-hellman/</guid>
+  <guid>http://my.littlepwney.fr/crypto/diffie-hellman/</guid>
   <description><![CDATA[fa-solid fa-superscript fa-fw fa-sm]]></description>
 </item>
 <item>
   <title>Elliptic Curves/</title>
-  <link>https://0xeg0.github.io/MyLittlePwney/crypto/elliptic-curves/</link>
+  <link>http://my.littlepwney.fr/crypto/elliptic-curves/</link>
   <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
   <author>Author</author>
-  <guid>https://0xeg0.github.io/MyLittlePwney/crypto/elliptic-curves/</guid>
+  <guid>http://my.littlepwney.fr/crypto/elliptic-curves/</guid>
   <description><![CDATA[fa-solid fa-wave-square fa-fw fa-sm]]></description>
 </item>
 </channel>

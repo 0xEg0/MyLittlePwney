@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HackSecuReims/ on MyLittlePwney</title>
-    <link>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/</link>
+    <link>http://my.littlepwney.fr/writeups/hacksecureims/</link>
     <description>Recent content in HackSecuReims/ on MyLittlePwney</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 01 Apr 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://my.littlepwney.fr/writeups/hacksecureims/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chiffrement de Beaufort -  HSR 2024</title>
-      <link>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/chiffrement_de_beaufort/</link>
+      <link>http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/</link>
       <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
-      <guid>https://0xeg0.github.io/MyLittlePwney/writeups/hacksecureims/chiffrement_de_beaufort/</guid>
+      <guid>http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/</guid>
       <description>Binary AnalysisPour analyser le binaire, on va commencer par l&amp;rsquo;ouvrir avec un décompilo, comme Binja. Le binaire n&amp;rsquo;étant pas strippé, on peut s&amp;rsquo;aider des symboles pour deviner ce que fait chaque fonction. A part la fonction backdoor() qui aspire à servir de fonction win(), le nom des fonctions ne nous apporte rien d&amp;rsquo;intéressant. Regardons un peu plus en détail ce que fait le programme.&#xA;Main()Tout d&amp;rsquo;abord, la fonction main() va lire l&amp;rsquo;entrée standard à 2 reprises, attendant de l&amp;rsquo;utilisateur qu&amp;rsquo;il envoie une chaine de maximum 0x64 caractères.</description>
     </item>
   </channel>

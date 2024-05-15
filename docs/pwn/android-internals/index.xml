@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android Internals/ on MyLittlePwney</title>
-    <link>https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/</link>
+    <link>http://my.littlepwney.fr/pwn/android-internals/</link>
     <description>Recent content in Android Internals/ on MyLittlePwney</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://0xeg0.github.io/MyLittlePwney/pwn/android-internals/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://my.littlepwney.fr/pwn/android-internals/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
