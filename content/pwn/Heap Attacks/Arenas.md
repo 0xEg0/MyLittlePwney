@@ -14,13 +14,13 @@ tags:
 Les arenas sont des structures de données utilisées par malloc pour administrer les heaps utilisées par les différents process. En théorie, chaque thread peut avoir sa propre arena. Mais le nombre maxium d'arenas disponibles pour un process dépend du nombre de cores disponibles à ce process.
 
 ### Details
-Les arenas sont donc utilisées par malloc pour administrer les heaps. Leur principale utilitée est de gérer le recyclage des free chunks. Pour faire cela, elles sont constituées de [bins](/MyLittlePwney/pwn/heap-attacks/bins/), des structures de données qui vont référencer efficacement les chunks qui ont été free.
+Les arenas sont donc utilisées par malloc pour administrer les heaps. Leur principale utilitée est de gérer le recyclage des free chunks. Pour faire cela, elles sont constituées de [bins](/pwn/heap-attacks/bins/), des structures de données qui vont référencer efficacement les chunks qui ont été free.
 
 Les arenas sont définies selon la struct *malloc_state*. De nouvelles arenas peuvent être créées et initialisées via les fonctions *_init_new_arena()* et *malloc_init_state()*. 
 
 ### Layout
 Une arena est designée comme une structure de données. Il est donc necessaire de comprendre comment les données sont agencées pour savoir comment interpréter une arena à partir des données en mémoire.
-![Arenas Layout](/MyLittlePwney/images/arenas_layout.png)
+![Arenas Layout](/images/arenas_layout.png)
 #### mutex
 Un mutex agit comme une sorte de gardien d'une zone mémoire. Il permet d'éviter qu'une zone mémoire ne soit altérée par une utilisation simultanée venant de différents thread. C'est une protection assez efficace lorsque plusieurs thread essaient d'accèder à une même zone mémoire.
 

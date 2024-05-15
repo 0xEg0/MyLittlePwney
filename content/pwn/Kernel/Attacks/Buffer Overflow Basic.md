@@ -14,14 +14,14 @@ tags:
 Tout comme pour une exploitation de **BoF** en user-land, notre objectif va être d'overwrite la return address de la fonction vulnérable pour prendre le contrôle du flow d'exécution. 
 On se place ici dans le cas où aucune protection n'est présente au niveau du kernel. 
 ## Detail
-Notre objectif lors de l'exploitation d'un buffer overflow en kernel-land est de réussir a exécuter du code user-land tout en profitant de l'exécution de code kernel-land pour [élever nos privilèges](/MyLittlePwney/pwn/kernel/kernel-privesc).
+Notre objectif lors de l'exploitation d'un buffer overflow en kernel-land est de réussir a exécuter du code user-land tout en profitant de l'exécution de code kernel-land pour [élever nos privilèges](/pwn/kernel/kernel-privesc).
 
 Ainsi, un schéma d'attaque classique nous donnerait :
 1) Exploiter le buffer overflow.
 2) Overwrite l'adresse de retour de la fonction vulnérable par l'adresse de la fonction *privesc()*.
 	- *privesc()* passe les privilèges du process, lancé par notre binaire *exploit*, a root.
 3) Maintenant qu'on a des privilèges root, on peut lancer un *system("/bin/sh")*.
-![task_struct](/MyLittlePwney/images/kernel_bof.png)
+![task_struct](/images/kernel_bof.png)
 ## Exploit
 Pour implémenter cette attaque, on va se mettre dans le cas où on peut interagir avec une device, dont la propriété **write** fait appel à une fonction vulnérable à un buffer overflow. Ainsi, lorsque l'on va *write()* plus de caractères qu'attendu, on va overflow sur la stack kernel.
 
@@ -42,7 +42,7 @@ void open_dev(){
 
 Ensuite on va préparer notre fonction *privesc()* que l'on va appeler une fois avoir pris le contrôle sur le flow d'exécution côté kernel.
 
-| Pour mieux comprendre le principe de l'élévation de privilèges côté kernel, allez voir : [Kernel Privesc](/MyLittlePwney/pwn/kernel/kernel-privesc). |
+| Pour mieux comprendre le principe de l'élévation de privilèges côté kernel, allez voir : [Kernel Privesc](/pwn/kernel/kernel-privesc). |
 | --- |
 
 ```c title:privesc()

@@ -20,7 +20,7 @@ Toutes ces actions nécéssitent une intervention du kernel au niveau des proces
 
 Pour comprendre et manipuler les process, le kernel linux utilise une structure [task_struct](https://github.com/torvalds/linux/blob/master/include/linux/sched.h#L748) contenant toutes le informations dont il a besoin : PID, état du process, niveau de permissions...
 Il sauvegarde la **task_struct** de tous les process en mémoire, sous forme de liste chainée.
-![task_struct](/MyLittlePwney/images/task_struct.png)
+![task_struct](/images/task_struct.png)
 ## Privesc
 Puisque le kernel peut modifier la structure d'un process, alors il peut modifier les permissions de ce process, et notamment les passer a root.
 Ainsi, si on trouve une faille niveau kernel qui nous permet de prendre le contrôle du flow d'execution, alors nous pouvons simplement lancer un process en user-land, augmenter ses privileges côté kernel et retourner en user-land.
@@ -63,4 +63,4 @@ Et maintenant le process détient des privilèges root sur la machine.
 
 ## TLDR
 Pour simplifier, le but est d'exploiter une vulnerabilité pour prendre le contrôle du flow d'execution côté kernel. Ensuite, on va utiliser les fonctions kernel *commit_creds()* et *prepare_kernel_cred()* pour modifier les privilèges de notre process. Enfin, on va retourner en user-land pour continuer l'execution de notre process avec les privilèges ameliorés.
-![Kernel Privesc](/MyLittlePwney/images/kernel_privesc.png)
+![Kernel Privesc](/images/kernel_privesc.png)

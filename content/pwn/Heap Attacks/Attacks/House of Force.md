@@ -16,11 +16,11 @@ L'objectif de cette attaque est d'overwrite les metadata du top chunk pour augme
 Dans les versions de la **GLIBC < 2.29**, il n'y a pas de check sur l'intégrité des metadata du top chunk. Ainsi, si la size du top chunk est overwrite, l'algorithme *malloc* fonctionnera quand même.
 Comme les chunks sont alloués à partir du top chunk, si on overwrite la size du top chunk, on devrait être en mesure de couvrir l'ensemble des adresses de la mémoire, y compris les addresses en dehors de la heap.
 
-![Malloc from Top Chunk](/MyLittlePwney/images/malloc_chunk_alloc.png)
+![Malloc from Top Chunk](/images/malloc_chunk_alloc.png)
 
 L'intérêt de cette attaque est de pouvoir overwrite des valeurs à des adresses plus basses que l'adresse de la **HEAP**. Voir de simplement overwrite des valeurs en dehors de la **HEAP**.
 
-![Malloc from Top Chunk](/MyLittlePwney/images/house_of_force.png)
+![Malloc from Top Chunk](/images/house_of_force.png)
 
 ## Exploit
 L'attaque en elle même se déroule en 3 étapes : 
