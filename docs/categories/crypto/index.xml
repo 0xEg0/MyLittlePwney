@@ -1,0 +1,55 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Crypto - Category - MyLittlePwney</title>
+    <link>http://my.littlepwney.fr/categories/crypto/</link>
+    <description>Crypto - Category | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://my.littlepwney.fr/categories/crypto/" rel="self" type="application/rss+xml" /><item>
+  <title>AES/</title>
+  <link>http://my.littlepwney.fr/crypto/aes/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/crypto/aes/</guid>
+  <description><![CDATA[fa-solid fa-arrows-left-right-to-line fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Crypto/</title>
+  <link>http://my.littlepwney.fr/crypto/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/crypto/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Diffie-Hellman/</title>
+  <link>http://my.littlepwney.fr/crypto/diffie-hellman/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/crypto/diffie-hellman/</guid>
+  <description><![CDATA[fa-solid fa-superscript fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Elliptic Curves/</title>
+  <link>http://my.littlepwney.fr/crypto/elliptic-curves/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/crypto/elliptic-curves/</guid>
+  <description><![CDATA[fa-solid fa-wave-square fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Maths/</title>
+  <link>http://my.littlepwney.fr/crypto/maths/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/crypto/maths/</guid>
+  <description><![CDATA[fa-solid fa-square-root-variable fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>RSA/</title>
+  <link>http://my.littlepwney.fr/crypto/rsa/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/crypto/rsa/</guid>
+  <description><![CDATA[fa-solid fa-key fa-fw fa-sm]]></description>
+</item>
+</channel>
+</rss>

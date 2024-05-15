@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Heap - Category - MyLittlePwney</title>
+    <link>http://my.littlepwney.fr/categories/heap/</link>
+    <description>Heap - Category | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://my.littlepwney.fr/categories/heap/" rel="self" type="application/rss+xml" /><item>
+  <title>🔥 House of Force 🔥</title>
+  <link>http://my.littlepwney.fr/pwn/heap-attacks/attacks/house-of-force/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/heap-attacks/attacks/house-of-force/</guid>
+  <description><![CDATA[OverviewL&rsquo;objectif de cette attaque est d&rsquo;overwrite les metadata du top chunk pour augmenter sa size. Ainsi on va pouvoir faire des malloc sur un espace mémoire beaucoup plus grand et donc malloc en dehors de la HEAP.
+DetailDans les versions de la GLIBC &lt; 2.29, il n&rsquo;y a pas de check sur l&rsquo;intégrité des metadata du top chunk. Ainsi, si la size du top chunk est overwrite, l&rsquo;algorithme malloc fonctionnera quand même.]]></description>
+</item>
+<item>
+  <title>Attacks/</title>
+  <link>http://my.littlepwney.fr/pwn/heap-attacks/attacks/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/heap-attacks/attacks/</guid>
+  <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Heap Attacks/</title>
+  <link>http://my.littlepwney.fr/pwn/heap-attacks/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/heap-attacks/</guid>
+  <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
+</item>
+</channel>
+</rss>

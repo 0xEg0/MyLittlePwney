@@ -1,0 +1,91 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Pwn - Tag - MyLittlePwney</title>
+    <link>http://my.littlepwney.fr/tags/pwn/</link>
+    <description>Pwn - Tag | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://my.littlepwney.fr/tags/pwn/" rel="self" type="application/rss+xml" /><item>
+  <title>Chiffrement de Beaufort -  HSR 2024</title>
+  <link>http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/</link>
+  <pubDate>Mon, 01 Apr 2024 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/writeups/hacksecureims/chiffrement_de_beaufort/</guid>
+  <description><![CDATA[Binary AnalysisPour analyser le binaire, on va commencer par l&rsquo;ouvrir avec un décompilo, comme Binja. Le binaire n&rsquo;étant pas strippé, on peut s&rsquo;aider des symboles pour deviner ce que fait chaque fonction. A part la fonction backdoor() qui aspire à servir de fonction win(), le nom des fonctions ne nous apporte rien d&rsquo;intéressant. Regardons un peu plus en détail ce que fait le programme.
+Main()Tout d&rsquo;abord, la fonction main() va lire l&rsquo;entrée standard à 2 reprises, attendant de l&rsquo;utilisateur qu&rsquo;il envoie une chaine de maximum 0x64 caractères.]]></description>
+</item>
+<item>
+  <title>Buffer Overflow Basic</title>
+  <link>http://my.littlepwney.fr/pwn/kernel/attacks/buffer-overflow-basic/</link>
+  <pubDate>Wed, 21 Feb 2024 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/kernel/attacks/buffer-overflow-basic/</guid>
+  <description><![CDATA[OverviewTout comme pour une exploitation de BoF en user-land, notre objectif va être d&rsquo;overwrite la return address de la fonction vulnérable pour prendre le contrôle du flow d&rsquo;exécution. On se place ici dans le cas où aucune protection n&rsquo;est présente au niveau du kernel.
+DetailNotre objectif lors de l&rsquo;exploitation d&rsquo;un buffer overflow en kernel-land est de réussir a exécuter du code user-land tout en profitant de l&rsquo;exécution de code kernel-land pour élever nos privilèges.]]></description>
+</item>
+<item>
+  <title>🪜 Kernel Privesc 🪜</title>
+  <link>http://my.littlepwney.fr/pwn/kernel/kernel-privesc/</link>
+  <pubDate>Mon, 19 Feb 2024 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/kernel/kernel-privesc/</guid>
+  <description><![CDATA[OverviewL&rsquo;objectif de ce post est d&rsquo;aborder la couche d&rsquo;abstraction nécéssaire à la compréhension du pwn kernel. Pour cela, il est nécéssaire de comprendre comment les différents process interagissent avec le kernel, et comment un contrôle de flow d&rsquo;execution en kernel-mode peut nous permettre d&rsquo;améliorer nos privilèges en user-land.
+Process x KernelIl est important de noter que l&rsquo;on interagit avec le kernel de pleins de manières différentes. Que ce soit en modifiant le filesystem, avec des syscalls, en communiquant avec des devices&hellip; Toutes ces actions nécéssitent une intervention du kernel au niveau des process qui les initient.]]></description>
+</item>
+<item>
+  <title>IO Attacks/</title>
+  <link>http://my.littlepwney.fr/pwn/io-attacks/</link>
+  <pubDate>Sat, 11 Mar 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/io-attacks/</guid>
+  <description><![CDATA[fa-solid fa-code-compare fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>🔥 House of Force 🔥</title>
+  <link>http://my.littlepwney.fr/pwn/heap-attacks/attacks/house-of-force/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/heap-attacks/attacks/house-of-force/</guid>
+  <description><![CDATA[OverviewL&rsquo;objectif de cette attaque est d&rsquo;overwrite les metadata du top chunk pour augmenter sa size. Ainsi on va pouvoir faire des malloc sur un espace mémoire beaucoup plus grand et donc malloc en dehors de la HEAP.
+DetailDans les versions de la GLIBC &lt; 2.29, il n&rsquo;y a pas de check sur l&rsquo;intégrité des metadata du top chunk. Ainsi, si la size du top chunk est overwrite, l&rsquo;algorithme malloc fonctionnera quand même.]]></description>
+</item>
+<item>
+  <title>Android Internals/</title>
+  <link>http://my.littlepwney.fr/pwn/android-internals/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/android-internals/</guid>
+  <description><![CDATA[fa-brands fa-android fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Attacks/</title>
+  <link>http://my.littlepwney.fr/pwn/heap-attacks/attacks/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/heap-attacks/attacks/</guid>
+  <description><![CDATA[fa-solid fa-trash-can fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Browser Exploitation/</title>
+  <link>http://my.littlepwney.fr/pwn/browser-exploitation/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/browser-exploitation/</guid>
+  <description><![CDATA[fa-brands fa-chrome fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Cheat Sheets</title>
+  <link>http://my.littlepwney.fr/pwn/cheat-sheets/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/cheat-sheets/</guid>
+  <description><![CDATA[fa-solid fa-file-lines fa-fw fa-sm]]></description>
+</item>
+<item>
+  <title>Format Strings/</title>
+  <link>http://my.littlepwney.fr/pwn/format-strings/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/format-strings/</guid>
+  <description><![CDATA[fa-solid fa-file-code fa-fw fa-sm]]></description>
+</item>
+</channel>
+</rss>

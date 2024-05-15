@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Cheatsheet - Category - MyLittlePwney</title>
+    <link>http://my.littlepwney.fr/categories/cheatsheet/</link>
+    <description>Cheatsheet - Category | MyLittlePwney</description>
+    <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://my.littlepwney.fr/categories/cheatsheet/" rel="self" type="application/rss+xml" /><item>
+  <title>Cheat Sheets</title>
+  <link>http://my.littlepwney.fr/pwn/cheat-sheets/</link>
+  <pubDate>Mon, 20 Feb 2023 00:00:00 &#43;0000</pubDate>
+  <author>Author</author>
+  <guid>http://my.littlepwney.fr/pwn/cheat-sheets/</guid>
+  <description><![CDATA[fa-solid fa-file-lines fa-fw fa-sm]]></description>
+</item>
+</channel>
+</rss>
