@@ -29,7 +29,7 @@ L'attaque en elle même se déroule en 3 étapes :
 - On effectue un nouveau *malloc()* qui va nous permettre d'atteindre l'adresse ciblée.
 ## Further use
 Pour aller plus loin, on peut tenter d'utiliser cette attaque pour obtenir un shell. 
-Pour cela, un stratégie peut être d'overwrite l'adresse du **Malloc hook**. Ce dernier étant utilisé à chaque appel de la fonction *malloc()*, on peut le remplacer par l'adresse de la fonction *system()* et lui passer une adresse pointant vers un **"/bin/sh"**.
+Pour cela, une stratégie peut être d'overwrite l'adresse du **Malloc hook**. Ce dernier étant utilisé à chaque appel de la fonction *malloc()*, on peut le remplacer par l'adresse de la fonction *system()* et lui passer une adresse pointant vers un **"/bin/sh"**.
 Ainsi, chaque nouvel appel à la fonction *malloc()* va hook vers un appel à *system()*.
 ## Limitations
 A partir de la **GLIBC 2.29**, la size du top chunk est vérifiée pour s'assurer que le top chunk ne sorte pas de sa zone mémoire.
